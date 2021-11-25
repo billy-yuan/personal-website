@@ -1,0 +1,20 @@
+.home-highlight-image-container {
+  width: 100%;
+}
+
+.home-container {
+  max-height: 100vh;
+  height: 800px;
+  display: flex;
+}
+
+.highlight-nav-card {
+  height: calc(100% / 4);
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+
+  font-size: 50px;
+}
