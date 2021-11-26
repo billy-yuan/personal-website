@@ -31,6 +31,7 @@
   flex-direction: column;
   font-size: 50px;
   margin-left: 70vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .default-highlight-image {
@@ -55,4 +56,5 @@
   left: calc((70vw - 30vw) / 2);
   top: 30vh;
   z-index: 2;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }

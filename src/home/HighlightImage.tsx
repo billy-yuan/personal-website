@@ -16,6 +16,7 @@ function highlightImageStyle(
     backgroundRepeat: "no-repeat",
     willChange: "opacity",
     backgroundSize: "cover",
+    filter: "grayscale(85%)",
   };
 
   switch (sectionName) {
