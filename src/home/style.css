@@ -15,13 +15,14 @@
 }
 
 .highlight-nav-container {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 25vh;
+  margin-bottom: 25vh;
 }
+
 .highlight-nav-card {
   z-index: 3;
   position: relative;
-  height: calc(90vh / 4);
+  height: calc(50vh / 4);
   width: 250px;
   display: flex;
   justify-content: center;
@@ -43,4 +44,15 @@
   z-index: 0;
   transition: opacity 1.2s;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEXv6d1yGkyLAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=");
+}
+
+.highlight-text-container {
+  width: 30vw;
+  height: 300px;
+  background-color: rgba(243, 243, 243, 0.9);
+  position: absolute;
+  padding: 20px;
+  left: calc((70vw - 30vw) / 2);
+  top: 30vh;
+  z-index: 2;
 }
