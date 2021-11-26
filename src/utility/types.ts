@@ -13,3 +13,4 @@ export const NavSectionURL: { [key in NavSection]: string } = {
   Places: "/places",
   None: "/",
 };
+
