@@ -5,3 +5,12 @@ export enum NavSection {
   "Places" = "Places",
   "None" = "None",
 }
+
+export const NavSectionURL: { [key in NavSection]: string } = {
+  "About Me": "/about-me",
+  Blog: "/blog",
+  People: "/people",
+  Places: "/places",
+  None: "/",
+};
+
