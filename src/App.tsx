@@ -3,6 +3,7 @@ import "./App.css";
 import { Blog } from "./blog/Blog";
 import { Home } from "./home/Home";
 import { Routes, Route } from "react-router-dom";
+import { MainNavIcons } from "./main-nav/MainNavIcons";
 
 function App() {
   const client = new ApolloClient({
@@ -13,11 +14,13 @@ function App() {
   return (
     <div className="App">
       <ApolloProvider client={client}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <MainNavIcons>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </MainNavIcons>
       </ApolloProvider>
     </div>
   );
