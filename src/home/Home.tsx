@@ -6,7 +6,7 @@ export function Home() {
   return (
     <HomeContextProvider>
       <div className="home-container">
-        <HighlightImage />
+        {/* <HighlightImage /> */}
         <HighlightNavSection />
       </div>
     </HomeContextProvider>

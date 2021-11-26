@@ -1,4 +1,5 @@
 import { NavSection } from "../utility/types";
+import { HighlightImage } from "./HighlightImage";
 import { useHomeContext } from "./hooks/context";
 import { HomeActionType } from "./hooks/reducer";
 
@@ -21,12 +22,13 @@ export function HighlightNavCard({ name }: HighlightNavCardProps) {
   };
 
   return (
-    <div
-      className="highlight-nav-card"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <span>{name}</span>
-    </div>
+    <>
+      <HighlightImage name={name} />
+      <div className="highlight-nav-card">
+        <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          {name}
+        </span>
+      </div>
+    </>
   );
 }
