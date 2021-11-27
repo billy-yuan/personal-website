@@ -1,0 +1,28 @@
+.post-container {
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  text-align: left;
+  line-height: 25px;
+}
+
+.post-header {
+  line-height: 15px;
+  height: 75px;
+}
+.post-header p {
+  font-size: 13px;
+}
+
+.post-cover-image {
+  height: calc(550px / 1.5);
+  width: 550px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+.post-cover-image img {
+  width: 550px;
+}

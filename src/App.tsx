@@ -4,7 +4,7 @@ import { Blog } from "./blog/Blog";
 import { Home } from "./home/Home";
 import { Routes, Route } from "react-router-dom";
 import { MainNavIcons } from "./main-nav/MainNavIcons";
-import { Post } from "./blog/Post";
+import { BlogPost } from "./post/BlogPost";
 
 function App() {
   const client = new ApolloClient({
@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/post/:slug" element={<Post />} />
+            <Route path="/post/:slug" element={<BlogPost />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </MainNavIcons>
