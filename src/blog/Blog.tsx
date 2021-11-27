@@ -1,45 +1,29 @@
-import { useQuery } from "@apollo/client";
-import gql from "graphql-tag";
 import { PostCard } from "./PostCard";
-
-const QUERY = gql`
-  {
-    posts {
-      id
-      title
-      publishedAt
-      content {
-        markdown
-      }
-      tags
-    }
-  }
-`;
-
-type Posts = {
-  __typename: "Post";
-  id: string;
-  title: string;
-  publishedAt: string;
-  tags: string[];
-  content: { __typename: "RichText"; markdown: string };
-};
+import { Posts } from "./utility/types";
+import { POSTS_QUERY } from "./utility/queries";
+import { useQuery } from "@apollo/client";
+import { formatDate } from "./utility/utility";
 
 export function Blog() {
-  const { data, loading, error } = useQuery(QUERY);
+  const { data, loading, error } = useQuery(POSTS_QUERY);
+
   const posts: Posts[] = data && data.posts;
 
   if (loading || error) return <div />;
 
   return (
     <>
+      <div className="post-card-header">
+        <h1>Blog</h1>
+      </div>
       {posts.map((post) => (
-        <div key={post.id}>
+        <div key={"post-card-" + post.id}>
           <PostCard
-            id={post.id}
             title={post.title}
-            date={post.publishedAt}
-            tags={post.tags}
+            slug={post.slug}
+            imageUrl={post.coverImage.url}
+            date={formatDate(post.publishedAt)}
+            excerpt={post.excerpt}
           />
         </div>
       ))}
