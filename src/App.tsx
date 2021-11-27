@@ -5,6 +5,8 @@ import { Home } from "./home/Home";
 import { Routes, Route } from "react-router-dom";
 import { MainNavIcons } from "./main-nav/MainNavIcons";
 import { BlogPost } from "./post/BlogPost";
+import { AboutMe } from "./about-me/AboutMe";
+import { NavSectionURL } from "./utility/types";
 
 function App() {
   const client = new ApolloClient({
@@ -18,8 +20,9 @@ function App() {
         <MainNavIcons>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/post/:slug" element={<BlogPost />} />
+            <Route path={NavSectionURL["About Me"]} element={<AboutMe />} />
+            <Route path={NavSectionURL.Blog} element={<Blog />} />
+            <Route path={NavSectionURL.Blog} element={<BlogPost />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </MainNavIcons>

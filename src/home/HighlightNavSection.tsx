@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NavSection } from "../utility/types";
+import { NavSection, NavSectionURL } from "../utility/types";
 import { HighlightNavCard } from "./HighlightNavCard";
 import { HighlightText } from "./HighlightText";
 import "./style.css";
@@ -9,8 +9,10 @@ export function HighlightNavSection() {
     <>
       <div className="highlight-nav-container">
         <HighlightText />
-        <HighlightNavCard name={NavSection["About Me"]} />
-        <Link to="/blog">
+        <Link to={NavSectionURL["About Me"]}>
+          <HighlightNavCard name={NavSection["About Me"]} />
+        </Link>
+        <Link to={NavSectionURL.Blog}>
           <HighlightNavCard name={NavSection.Blog} />
         </Link>
         <HighlightNavCard name={NavSection.People} />
