@@ -2,6 +2,7 @@ export type Posts = {
   __typename: "Post";
   id: string;
   title: string;
+  slug: string;
   excerpt: string;
   coverImage: {
     url: string;

@@ -1,17 +1,18 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 type PostCardProps = {
-  id: string;
   title: string;
+  slug: string;
   date: string;
   excerpt: string;
   imageUrl: string;
 };
 
 export function PostCard({
-  id,
   title,
+  slug,
   date,
   excerpt,
   imageUrl,
@@ -37,38 +38,44 @@ export function PostCard({
     },
   };
 
-  const postCardImageStyleHover = {};
+  const postLink = `/post/${slug}`;
+
   return (
-    <div
-      className="post-card-container"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <Link to={postLink}>
       <div
-        className="post-card-image"
-        style={mouseEnter ? postCardImageStyle.hover : postCardImageStyle.base}
-      />
-      <div className="post-card-text">
-        <h3
-          style={{
-            margin: "0",
-            textDecoration: mouseEnter ? "underline" : "none",
-          }}
-        >
-          {title}
-        </h3>
-        <p>{excerpt}</p>
+        className="post-card-container"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <div
-          style={{
-            color: "rgb(128,128,128)",
-            fontWeight: 400,
-            fontSize: "12px",
-          }}
-          className="post-card-date"
-        >
-          {date}
+          className="post-card-image"
+          style={
+            mouseEnter ? postCardImageStyle.hover : postCardImageStyle.base
+          }
+        />
+
+        <div className="post-card-text">
+          <h3
+            style={{
+              margin: "0",
+              textDecoration: mouseEnter ? "underline" : "none",
+            }}
+          >
+            {title}
+          </h3>
+          <p>{excerpt}</p>
+          <div
+            style={{
+              color: "rgb(128,128,128)",
+              fontWeight: 400,
+              fontSize: "12px",
+            }}
+            className="post-card-date"
+          >
+            {date}
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
