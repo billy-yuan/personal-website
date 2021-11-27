@@ -1,32 +1,11 @@
-import { useQuery } from "@apollo/client";
-import gql from "graphql-tag";
 import { PostCard } from "./PostCard";
-
-const QUERY = gql`
-  {
-    posts {
-      id
-      title
-      publishedAt
-      content {
-        markdown
-      }
-      tags
-    }
-  }
-`;
-
-type Posts = {
-  __typename: "Post";
-  id: string;
-  title: string;
-  publishedAt: string;
-  tags: string[];
-  content: { __typename: "RichText"; markdown: string };
-};
+import { Posts } from "./utility/types";
+import { POSTS_QUERY } from "./utility/queries";
+import { useQuery } from "@apollo/client";
+import { formatDate } from "./utility/utility";
 
 export function Blog() {
-  const { data, loading, error } = useQuery(QUERY);
+  const { data, loading, error } = useQuery(POSTS_QUERY);
   const posts: Posts[] = data && data.posts;
 
   if (loading || error) return <div />;
@@ -38,7 +17,7 @@ export function Blog() {
           <PostCard
             id={post.id}
             title={post.title}
-            date={post.publishedAt}
+            date={formatDate(post.publishedAt)}
             tags={post.tags}
           />
         </div>
