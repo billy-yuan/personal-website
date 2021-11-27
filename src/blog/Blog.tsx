@@ -12,13 +12,17 @@ export function Blog() {
 
   return (
     <>
+      <div className="post-card-header">
+        <h1>Blog</h1>
+      </div>
       {posts.map((post) => (
-        <div key={post.id}>
+        <div key={"post-card-" + post.id}>
           <PostCard
             id={post.id}
             title={post.title}
+            imageUrl={post.coverImage.url}
             date={formatDate(post.publishedAt)}
-            tags={post.tags}
+            excerpt={post.excerpt}
           />
         </div>
       ))}
