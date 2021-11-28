@@ -1,7 +1,7 @@
 export enum COLORS {
   "grey" = "grey",
   "white" = "white",
-  "cream" = "cream",
+  "bisque" = "bisque",
   "black" = "black",
   "olive" = "olive",
 }
