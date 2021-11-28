@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path={NavSectionURL["About Me"]} element={<AboutMe />} />
             <Route path={NavSectionURL.Blog} element={<Blog />} />
-            <Route path={NavSectionURL.Blog} element={<BlogPost />} />
+            <Route path={NavSectionURL.Post} element={<BlogPost />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </MainNavIcons>
