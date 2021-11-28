@@ -1,0 +1,29 @@
+.about-me-container {
+  padding-top: 100px;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.left-about-me {
+  width: 500px;
+  text-align: left;
+}
+
+.left-about-me p {
+  line-height: 25px;
+}
+
+.right-about-me {
+  width: 200px;
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-me-picture {
+  width: 200px;
+  height: 250px;
+}
