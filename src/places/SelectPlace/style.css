@@ -1,0 +1,22 @@
+.select-place-container {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.select-place-header {
+  height: 100px;
+}
+.select-place-subheader {
+  line-height: 25px;
+  text-align: left;
+  margin: 0 auto;
+  width: 600px;
+  height: 250px;
+}
+
+.city-container {
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+  margin: 0 auto;
+}
