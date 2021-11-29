@@ -18,3 +18,7 @@ export function formatDate(dateString: string): string {
     formattedDate.year + "-" + formattedDate.month + "-" + formattedDate.day
   );
 }
+
+export function url(address: string): string {
+  return `url('${address}')`;
+}

@@ -1,0 +1,36 @@
+.select-city-card-container {
+  width: 575px;
+  margin: 10px;
+  height: 500px;
+  position: relative;
+  cursor: pointer;
+}
+
+.select-city-card-container:hover {
+  transition: 0.1s;
+  opacity: 0.7;
+}
+.select-city-card-container img {
+  height: 400px;
+  object-fit: cover;
+  position: relative;
+}
+
+.select-city-card-container div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.select-city-card-container h2 {
+  margin: 0 auto;
+  background-color: black;
+  width: fit-content;
+  padding: 8px;
+}
