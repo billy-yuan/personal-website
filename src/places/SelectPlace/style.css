@@ -17,6 +17,7 @@
 .city-container {
   display: flex;
   width: 90vw;
+  max-width: 1200px;
   justify-content: space-between;
   margin: 0 auto;
 }
