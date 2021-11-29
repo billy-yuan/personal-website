@@ -16,7 +16,9 @@ export function HighlightNavSection() {
           <HighlightNavCard name={NavSection.Blog} />
         </Link>
         <HighlightNavCard name={NavSection.People} />
-        <HighlightNavCard name={NavSection.Places} />
+        <Link to={NavSectionURL.Places}>
+          <HighlightNavCard name={NavSection.Places} />
+        </Link>
         <div className="default-highlight-image"></div>
       </div>
     </>

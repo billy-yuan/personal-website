@@ -7,6 +7,7 @@ import { MainNavIcons } from "./main-nav/MainNavIcons";
 import { BlogPost } from "./post/BlogPost";
 import { AboutMe } from "./about-me/AboutMe";
 import { NavSectionURL } from "./utility/types";
+import { Places } from "./places/Places";
 
 function App() {
   const client = new ApolloClient({
@@ -23,6 +24,7 @@ function App() {
             <Route path={NavSectionURL["About Me"]} element={<AboutMe />} />
             <Route path={NavSectionURL.Blog} element={<Blog />} />
             <Route path={NavSectionURL.Post} element={<BlogPost />} />
+            <Route path={NavSectionURL.Places} element={<Places />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </MainNavIcons>
