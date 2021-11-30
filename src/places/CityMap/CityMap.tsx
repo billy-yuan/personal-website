@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   blackAndWhiteMapStyle,
@@ -10,12 +10,13 @@ import {
 } from "./mapStyle";
 import { PLACES_QUERY } from "./query";
 import "./style.css";
-import { GoogleMapsLatLong, Place, ZoomType } from "./types";
+import { Place, ZoomType } from "./types";
 import { ZoomButtons } from "./ZoomButtons/ZoomButtons";
 
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-const googleMapsOptions = {
+const googleMapsOptions: google.maps.MapOptions = {
   disableDefaultUI: true,
+  gestureHandling: "none",
   styles: blackAndWhiteMapStyle,
 };
 
@@ -44,6 +45,14 @@ export function CityMap() {
     }
   };
 
+  const handleMarkerClick = (place: Place) => {
+    setClickedPlace(place);
+    map?.panTo({
+      lat: place.latLong.latitude,
+      lng: place.latLong.longitude,
+    });
+  };
+
   if (loading || error) {
     return <div />;
   }
@@ -51,18 +60,6 @@ export function CityMap() {
     lat: data.places[0].latLong.latitude,
     lng: data.places[0].latLong.longitude,
   };
-
-  // Pan to place whenever user clicks on a place
-  useEffect(() => {
-    if (!clickedPlace) {
-      return;
-    }
-    const clickedPlaceCoordinates: GoogleMapsLatLong = {
-      lat: clickedPlace?.latLong.latitude,
-      lng: clickedPlace?.latLong.longitude,
-    };
-    map?.panTo(clickedPlaceCoordinates);
-  }, [clickedPlace]);
 
   return (
     <div className="map-container">
@@ -80,7 +77,7 @@ export function CityMap() {
           />
           {data.places.map((place: Place) => (
             <Marker
-              onClick={() => setClickedPlace(place)}
+              onClick={() => handleMarkerClick(place)}
               icon={
                 place.name === clickedPlace?.name
                   ? selectedMarker
