@@ -8,9 +8,10 @@ import {
   selectedMarker,
   unselectedMarker,
 } from "./mapStyle";
+import { PlaceOverlay } from "./PlaceOverlay/PlaceOverlay";
 import { PLACES_QUERY } from "./query";
 import "./style.css";
-import { Place, ZoomType } from "./types";
+import { GoogleMapsLatLong, Place, ZoomType } from "./types";
 import { ZoomButtons } from "./ZoomButtons/ZoomButtons";
 
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -23,6 +24,7 @@ const googleMapsOptions: google.maps.MapOptions = {
 export function CityMap() {
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [clickedPlace, setClickedPlace] = useState<Place | null>(null);
+  const [mapCenter, setMapCenter] = useState<GoogleMapsLatLong | null>(null);
   const { slug } = useParams();
   const { data, loading, error } = useQuery(PLACES_QUERY, {
     variables: { slug },
@@ -47,6 +49,11 @@ export function CityMap() {
 
   const handleMarkerClick = (place: Place) => {
     setClickedPlace(place);
+    const newCenter: GoogleMapsLatLong = {
+      lat: place.latLong.latitude,
+      lng: place.latLong.longitude,
+    };
+    setMapCenter(newCenter);
     map?.panTo({
       lat: place.latLong.latitude,
       lng: place.latLong.longitude,
@@ -69,7 +76,7 @@ export function CityMap() {
           options={googleMapsOptions}
           mapContainerStyle={mapContainerStyle}
           zoom={13}
-          center={startingCenter}
+          center={mapCenter ? mapCenter : startingCenter}
         >
           <ZoomButtons
             zoomInCallback={() => handleZoomClick(ZoomType.ZOOM_IN)}
@@ -89,6 +96,12 @@ export function CityMap() {
               }}
             />
           ))}
+          {clickedPlace && (
+            <PlaceOverlay
+              clickedPlace={clickedPlace}
+              setClickedPlace={setClickedPlace}
+            />
+          )}
         </GoogleMap>
       </LoadScript>
     </div>
