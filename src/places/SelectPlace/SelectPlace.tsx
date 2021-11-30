@@ -1,4 +1,6 @@
 import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
+import { NavSectionURL } from "../../utility/types";
 import { SelectCityCard } from "../SelectCityCard/SelectCityCard";
 import { SELECT_PLACE_QUERY } from "./query";
 import "./style.css";
@@ -12,6 +14,7 @@ type City = {
   id: string;
   name: string;
   imageUrl: CityImage[];
+  slug: string;
 };
 
 export function SelectPlace() {
@@ -21,7 +24,6 @@ export function SelectPlace() {
   if (loading || error) {
     return <div />;
   }
-  console.log(data.cities);
 
   return (
     <div className="select-place-container">
@@ -39,11 +41,13 @@ export function SelectPlace() {
       </div>
       <div className="city-container">
         {data.cities.map((city: City) => (
-          <SelectCityCard
-            key={city.id}
-            city={city.name}
-            imageUrl={city.imageUrl[0].url}
-          />
+          <Link to={`${NavSectionURL.Places}/${city.slug}`}>
+            <SelectCityCard
+              key={city.id}
+              city={city.name}
+              imageUrl={city.imageUrl[0].url}
+            />
+          </Link>
         ))}
       </div>
     </div>
