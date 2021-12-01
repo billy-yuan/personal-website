@@ -20,8 +20,13 @@ export type City = {
 };
 
 export type Place = {
+  id: string;
   name: string;
   description: string;
+  imageUrl?: {
+    __typename: "Asset";
+    url: string;
+  };
   city: City;
   latLong: LatLong;
 };
