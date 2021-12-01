@@ -5,6 +5,7 @@ export const SELECT_PLACE_QUERY = gql`
     cities {
       id
       name
+      slug
       imageUrl {
         url
       }

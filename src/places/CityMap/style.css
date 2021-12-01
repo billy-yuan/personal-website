@@ -1,0 +1,55 @@
+.map-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  z-index: 0;
+}
+
+.zoom-container {
+  position: absolute;
+  bottom: 5vh;
+  right: 5vw;
+  z-index: 1;
+  width: 50px;
+  height: 100px;
+  font-size: 30px;
+  cursor: pointer;
+
+  color: white;
+  text-align: center;
+}
+
+.zoom-in {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  flex-direction: column;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 30px 30px 0 0;
+}
+
+.zoom-out {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  flex-direction: column;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 0 0 30px 30px;
+}
+
+.zoom-in:hover {
+  transition: 0.4s;
+  background-color: white;
+  color: black;
+}
+
+.zoom-out:hover {
+  transition: 0.4s;
+  background-color: white;
+  color: black;
+}
