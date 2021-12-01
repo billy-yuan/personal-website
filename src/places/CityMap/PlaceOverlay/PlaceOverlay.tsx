@@ -15,8 +15,11 @@ export function PlaceOverlay({
   const handleClick = (e: MouseEvent) => {
     // TODO: See if there is a better way to tell if the user is clicking on a marker
     const isMarker = e.target instanceof HTMLImageElement;
+    const clickedElement = e.target;
 
-    if (!overlayRef?.current?.contains(e.target as Node) && !isMarker) {
+    // If the user didn't click on the place overlay and didn't click on a marker,
+    // then close the overlay
+    if (!overlayRef?.current?.contains(clickedElement as Node) && !isMarker) {
       setClickedPlace(null);
     }
   };
