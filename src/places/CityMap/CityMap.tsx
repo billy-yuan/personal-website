@@ -17,7 +17,6 @@ import { ZoomButtons } from "./ZoomButtons/ZoomButtons";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const googleMapsOptions: google.maps.MapOptions = {
   disableDefaultUI: true,
-  gestureHandling: "none",
   styles: blackAndWhiteMapStyle,
 };
 
@@ -75,7 +74,7 @@ export function CityMap() {
           onLoad={(m) => setMap(m)}
           options={googleMapsOptions}
           mapContainerStyle={mapContainerStyle}
-          zoom={13}
+          zoom={12}
           center={mapCenter ? mapCenter : startingCenter}
         >
           <ZoomButtons
