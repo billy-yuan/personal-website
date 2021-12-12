@@ -1,0 +1,22 @@
+.listening-to-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.artist-image-container {
+  cursor: pointer;
+  z-index: 2;
+  padding: 3px;
+}
+
+.artist-image-container:hover {
+  opacity: 65%;
+}
+
+.artist-image {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  border-radius: 50%;
+}
