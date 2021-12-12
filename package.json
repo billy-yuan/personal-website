@@ -10,8 +10,10 @@
     "@apollo/client": "^3.5.5",
     "@react-google-maps/api": "^2.7.0",
     "graphql": "^16.0.1",
+    "i18next": "^21.6.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-i18next": "^11.15.0",
     "react-markdown": "^7.1.0",
     "react-router-dom": "^6.0.2"
   },
