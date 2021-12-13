@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { NavSection, NavSectionURL } from "../utility/types";
+import { useTranslation } from "react-i18next";
 
 type NavMenuProps = {
   isVisible: boolean;
@@ -7,6 +8,8 @@ type NavMenuProps = {
 };
 
 export function NavMenu({ isVisible, toggleVisible }: NavMenuProps) {
+  const { t } = useTranslation();
+
   if (!isVisible) {
     return <></>;
   }
@@ -22,16 +25,16 @@ export function NavMenu({ isVisible, toggleVisible }: NavMenuProps) {
             to={NavSectionURL["About Me"]}
             onClick={() => toggleVisible(false)}
           >
-            <div className="nav-menu-text-box">{NavSection["About Me"]}</div>
+            <div className="nav-menu-text-box">{t("navSection.aboutMe")}</div>
           </Link>
           <Link to={NavSectionURL.Blog} onClick={() => toggleVisible(false)}>
-            <div className="nav-menu-text-box">{NavSection.Blog}</div>
+            <div className="nav-menu-text-box">{t("navSection.blog")}</div>
           </Link>
           <Link to={NavSectionURL.People} onClick={() => toggleVisible(false)}>
-            <div className="nav-menu-text-box">{NavSection.People}</div>
+            <div className="nav-menu-text-box">{t("navSection.people")}</div>
           </Link>
           <Link to={NavSectionURL.Places} onClick={() => toggleVisible(false)}>
-            <div className="nav-menu-text-box">{NavSection.Places}</div>
+            <div className="nav-menu-text-box">{t("navSection.places")}</div>
           </Link>
         </div>
       </div>
