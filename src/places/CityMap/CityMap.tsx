@@ -3,6 +3,7 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import { useOnLanguageChange } from "../../utility/useOnLanguageChange";
 import {
   blackAndWhiteMapStyle,
   mapContainerStyle,
@@ -32,10 +33,7 @@ export function CityMap() {
     variables: { slug, locale: i18n.language },
   });
 
-  // Refetch data when user changes language
-  useEffect(() => {
-    refetch();
-  }, [i18n.language]);
+  useOnLanguageChange(refetch);
 
   const handleZoomClick = (zoomType: ZoomType) => {
     const zoomLevel = map?.getZoom();
