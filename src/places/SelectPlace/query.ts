@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const SELECT_PLACE_QUERY = gql`
-  {
-    cities {
+  query ($locale: Locale!) {
+    cities(locales: [$locale]) {
       id
       name
       slug

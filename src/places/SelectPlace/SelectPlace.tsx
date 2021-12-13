@@ -1,6 +1,9 @@
 import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { NavSectionURL } from "../../utility/types";
+import { useOnLanguageChange } from "../../utility/useOnLanguageChange";
 import { SelectCityCard } from "../SelectCityCard/SelectCityCard";
 import { SELECT_PLACE_QUERY } from "./query";
 import "./style.css";
@@ -18,7 +21,12 @@ type City = {
 };
 
 export function SelectPlace() {
-  const { data, loading, error } = useQuery(SELECT_PLACE_QUERY);
+  const { i18n } = useTranslation();
+  const { data, loading, error, refetch } = useQuery(SELECT_PLACE_QUERY, {
+    variables: { locale: i18n.language },
+  });
+
+  useOnLanguageChange(refetch);
 
   // TODO: Make loading / error screen
   if (loading || error) {
