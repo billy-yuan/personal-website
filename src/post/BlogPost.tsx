@@ -12,7 +12,6 @@ import { useOnLanguageChange } from "../utility/useOnLanguageChange";
 export function BlogPost() {
   const { i18n } = useTranslation();
   const { slug } = useParams();
-  console.log(slug);
   const { data, loading, error, refetch } = useQuery(ONE_POST_QUERY, {
     variables: { slug, locale: i18n.language },
   });
