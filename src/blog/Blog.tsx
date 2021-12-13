@@ -3,11 +3,17 @@ import { Posts } from "./utility/types";
 import { POSTS_QUERY } from "./utility/queries";
 import { useQuery } from "@apollo/client";
 import { formatDate } from "../utility/utility";
+import { useTranslation } from "react-i18next";
+import { useOnLanguageChange } from "../utility/useOnLanguageChange";
 
 export function Blog() {
-  const { data, loading, error } = useQuery(POSTS_QUERY);
+  const { i18n } = useTranslation();
+  const { data, loading, error, refetch } = useQuery(POSTS_QUERY, {
+    variables: { locale: i18n.language },
+  });
 
   const posts: Posts[] = data && data.posts;
+  useOnLanguageChange(refetch);
 
   if (loading || error) return <div />;
 
