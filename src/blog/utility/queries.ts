@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const POSTS_QUERY = gql`
-  {
-    posts(orderBy: publishedAt_DESC) {
+  query ($locale: Locale!) {
+    posts(locales: [$locale], orderBy: publishedAt_DESC) {
       id
       title
       slug
@@ -20,8 +20,8 @@ export const POSTS_QUERY = gql`
 `;
 
 export const ONE_POST_QUERY = gql`
-  query getPostById($slug: String) {
-    posts(where: { slug: $slug }) {
+  query getPostById($slug: String, $locale: Locale!) {
+    posts(locales: [$locale], where: { slug: $slug }) {
       id
       title
       publishedAt

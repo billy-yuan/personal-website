@@ -26,8 +26,8 @@ export function MainNavIcons({ children }: any) {
           </span>
           <span> / </span>
           <span
-            onClick={() => i18n.changeLanguage("jp")}
-            style={i18n.language === "jp" ? selectedLanguageStyle : {}}
+            onClick={() => i18n.changeLanguage("ja")}
+            style={i18n.language === "ja" ? selectedLanguageStyle : {}}
           >
             JP
           </span>

@@ -1,7 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import { useOnLanguageChange } from "../../utility/useOnLanguageChange";
 import {
   blackAndWhiteMapStyle,
   mapContainerStyle,
@@ -24,10 +26,14 @@ export function CityMap() {
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [clickedPlace, setClickedPlace] = useState<Place | null>(null);
   const [mapCenter, setMapCenter] = useState<GoogleMapsLatLong | null>(null);
+  const { i18n } = useTranslation();
   const { slug } = useParams();
-  const { data, loading, error } = useQuery(PLACES_QUERY, {
-    variables: { slug },
+
+  const { data, loading, error, refetch } = useQuery(PLACES_QUERY, {
+    variables: { slug, locale: i18n.language },
   });
+
+  useOnLanguageChange(refetch);
 
   const handleZoomClick = (zoomType: ZoomType) => {
     const zoomLevel = map?.getZoom();

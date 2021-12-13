@@ -9,7 +9,7 @@ export const translation = {
       },
     },
   },
-  jp: {
+  ja: {
     translation: {
       navSection: {
         aboutMe: "僕",

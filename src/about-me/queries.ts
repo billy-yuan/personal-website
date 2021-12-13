@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const ABOUT_ME_QUERY = gql`
-  {
-    aboutMes {
+  query ($locale: Locale!) {
+    aboutMes(locales: [$locale]) {
       content {
         markdown
       }

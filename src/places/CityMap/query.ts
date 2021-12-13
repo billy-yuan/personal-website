@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const PLACES_QUERY = gql`
-  query ($slug: String) {
-    places(where: { city: { slug: $slug } }) {
+  query ($slug: String, $locale: Locale!) {
+    places(locales: [$locale], where: { city: { slug: $slug } }) {
       id
       name
       city {

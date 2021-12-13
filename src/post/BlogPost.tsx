@@ -6,14 +6,20 @@ import { Post } from "./types";
 import ReactMarkdown from "react-markdown";
 import { formatDate } from "../utility/utility";
 import { COLORS } from "../utility/colors";
+import { useTranslation } from "react-i18next";
+import { useOnLanguageChange } from "../utility/useOnLanguageChange";
 
 export function BlogPost() {
+  const { i18n } = useTranslation();
   const { slug } = useParams();
-  const { data, loading, error } = useQuery(ONE_POST_QUERY, {
-    variables: { slug },
+  console.log(slug);
+  const { data, loading, error, refetch } = useQuery(ONE_POST_QUERY, {
+    variables: { slug, locale: i18n.language },
   });
 
-  if (loading) {
+  useOnLanguageChange(refetch);
+
+  if (loading || error) {
     return <div />;
   }
 
