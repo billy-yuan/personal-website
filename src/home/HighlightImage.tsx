@@ -58,7 +58,6 @@ export function HighlightImage({ name }: HighlightImageProps) {
   const [currentHighlightImageStyle, setHighlightImageStyle] = useState({});
 
   useEffect(() => {
-    console.log(state.mouseoverNav, name);
     if (state.mouseoverNav === name) {
       const newHighlightImageStyle = highlightImageStyle(state.mouseoverNav, {
         opacity: "1",

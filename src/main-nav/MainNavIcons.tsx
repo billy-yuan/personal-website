@@ -10,7 +10,7 @@ export function MainNavIcons({ children }: any) {
   const selectedLanguageStyle = {
     textDecoration: "underline",
   };
-  console.log(i18n.language);
+
   return (
     <>
       <Link to="/">
