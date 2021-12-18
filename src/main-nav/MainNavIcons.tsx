@@ -12,7 +12,7 @@ export function MainNavIcons({ children }: any) {
   };
 
   return (
-    <>
+    <div className="main-nav-icons-container">
       <Link to="/">
         <div className="home-icon">BY</div>
       </Link>
@@ -42,6 +42,6 @@ export function MainNavIcons({ children }: any) {
       </div>
       <NavMenu isVisible={isNavMenuVisible} toggleVisible={toggleNavMenu} />
       {children}
-    </>
+    </div>
   );
 }
