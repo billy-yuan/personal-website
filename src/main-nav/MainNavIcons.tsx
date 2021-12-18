@@ -18,7 +18,10 @@ export function MainNavIcons({ children }: any) {
         <Link to="/">
           <div className="home-icon">BY</div>
         </Link>
-        <div className="right-nav-icons">
+        <div
+          className="right-nav-icons"
+          style={{ color: isNavMenuVisible ? "white" : "black" }}
+        >
           <div className="choose-language">
             <span
               onClick={() => i18n.changeLanguage("en")}
@@ -36,7 +39,6 @@ export function MainNavIcons({ children }: any) {
           </div>
           <div
             className="nav-icon"
-            style={{ color: isNavMenuVisible ? "white" : "black" }}
             onClick={() => toggleNavMenu(!isNavMenuVisible)}
           >
             {isNavMenuVisible ? "x" : "="}
