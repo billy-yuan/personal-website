@@ -9,39 +9,42 @@ export function MainNavIcons({ children }: any) {
   const { t, i18n } = useTranslation();
   const selectedLanguageStyle = {
     textDecoration: "underline",
+    fontWeight: "600",
   };
 
   return (
-    <div className="main-nav-icons-container">
-      <Link to="/">
-        <div className="home-icon">BY</div>
-      </Link>
-      <div className="right-nav-icons">
-        <div className="choose-language">
-          <span
-            onClick={() => i18n.changeLanguage("en")}
-            style={i18n.language === "en" ? selectedLanguageStyle : {}}
+    <>
+      <div className="main-nav-icons-container">
+        <Link to="/">
+          <div className="home-icon">BY</div>
+        </Link>
+        <div className="right-nav-icons">
+          <div className="choose-language">
+            <span
+              onClick={() => i18n.changeLanguage("en")}
+              style={i18n.language === "en" ? selectedLanguageStyle : {}}
+            >
+              EN
+            </span>
+            <span> / </span>
+            <span
+              onClick={() => i18n.changeLanguage("ja")}
+              style={i18n.language === "ja" ? selectedLanguageStyle : {}}
+            >
+              JP
+            </span>
+          </div>
+          <div
+            className="nav-icon"
+            style={{ color: isNavMenuVisible ? "white" : "black" }}
+            onClick={() => toggleNavMenu(!isNavMenuVisible)}
           >
-            EN
-          </span>
-          <span> / </span>
-          <span
-            onClick={() => i18n.changeLanguage("ja")}
-            style={i18n.language === "ja" ? selectedLanguageStyle : {}}
-          >
-            JP
-          </span>
-        </div>
-        <div
-          className="nav-icon"
-          style={{ color: isNavMenuVisible ? "white" : "black" }}
-          onClick={() => toggleNavMenu(!isNavMenuVisible)}
-        >
-          {isNavMenuVisible ? "x" : "="}
+            {isNavMenuVisible ? "x" : "="}
+          </div>
         </div>
       </div>
       <NavMenu isVisible={isNavMenuVisible} toggleVisible={toggleNavMenu} />
       {children}
-    </div>
+    </>
   );
 }
