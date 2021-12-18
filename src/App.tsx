@@ -10,6 +10,7 @@ import { NavSectionURL } from "./utility/types";
 import { Places } from "./places/Places";
 import { CityMap } from "./places/CityMap/CityMap";
 import { ListeningTo } from "./listening-to/ListeningTo";
+import { Footer } from "./footer/Footer";
 
 function App() {
   const client = new ApolloClient({
@@ -31,6 +32,7 @@ function App() {
           <Route path={"/listening-to"} element={<ListeningTo />} />
           <Route path="*" element={<Home />} />
         </Routes>
+        <Footer />
       </ApolloProvider>
     </div>
   );
