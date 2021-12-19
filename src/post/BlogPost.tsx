@@ -4,7 +4,7 @@ import { ONE_POST_QUERY } from "../blog/utility/queries";
 import "./style.css";
 import { Post } from "./types";
 import ReactMarkdown from "react-markdown";
-import { formatDate } from "../utility/utility";
+import { FormatDate } from "../utility/utility";
 import { COLORS } from "../utility/colors";
 import { useTranslation } from "react-i18next";
 import { useOnLanguageChange } from "../utility/useOnLanguageChange";
@@ -30,7 +30,9 @@ export function BlogPost() {
       <div className="post-header">
         <h1>{post.title}</h1>
         <h3></h3>
-        <p style={{ color: COLORS.grey }}>{formatDate(post.publishedAt)}</p>
+        <p style={{ color: COLORS.grey }}>
+          {FormatDate.format(post.publishedAt, i18n.language)}
+        </p>
       </div>
       <div className="post-cover-image">
         <img src={post.coverImage.url} />

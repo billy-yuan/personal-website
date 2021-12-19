@@ -2,12 +2,12 @@ import { PostCard } from "./PostCard";
 import { Posts } from "./utility/types";
 import { POSTS_QUERY } from "./utility/queries";
 import { useQuery } from "@apollo/client";
-import { formatDate } from "../utility/utility";
+import { FormatDate } from "../utility/utility";
 import { useTranslation } from "react-i18next";
 import { useOnLanguageChange } from "../utility/useOnLanguageChange";
 
 export function Blog() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { data, loading, error, refetch } = useQuery(POSTS_QUERY, {
     variables: { locale: i18n.language },
   });
@@ -18,7 +18,7 @@ export function Blog() {
   if (loading || error) return <div />;
 
   return (
-    <>
+    <div className="blog-container">
       <div className="post-card-header">
         <h1>Blog</h1>
       </div>
@@ -28,11 +28,11 @@ export function Blog() {
             title={post.title}
             slug={post.slug}
             imageUrl={post.coverImage.url}
-            date={formatDate(post.publishedAt)}
+            date={FormatDate.format(post.publishedAt, i18n.language)}
             excerpt={post.excerpt}
           />
         </div>
       ))}
-    </>
+    </div>
   );
 }
