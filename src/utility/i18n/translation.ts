@@ -23,6 +23,9 @@ export const translation = {
           text: "Sometimes, I like to take pictures.",
         },
       },
+      blog: {
+        header: "Blog",
+      },
     },
   },
   ja: {
@@ -33,7 +36,7 @@ export const translation = {
           text: "Read my story.",
         },
         blog: {
-          name: "Blog",
+          name: "ブログ",
           text: "Thoughts on building and learning.",
         },
         coffee: {
@@ -48,6 +51,9 @@ export const translation = {
           name: "Photos",
           text: "Sometimes, I like to take pictures.",
         },
+      },
+      blog: {
+        header: "ブログ",
       },
     },
   },

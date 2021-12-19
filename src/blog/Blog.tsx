@@ -20,7 +20,7 @@ export function Blog() {
   return (
     <div className="blog-container">
       <div className="post-card-header">
-        <h1>Blog</h1>
+        <h1>{t("blog.header")}</h1>
       </div>
       {posts.map((post) => (
         <div key={"post-card-" + post.id}>
