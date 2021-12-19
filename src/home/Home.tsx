@@ -80,8 +80,14 @@ function NavCard({ header, text }: NavCardProps) {
       onMouseEnter={() => setIsMouseOver(true)}
       onMouseLeave={() => setIsMouseOver(false)}
     >
-      <h2 style={isMouseOver ? mouseOverStyle : {}}>{header}</h2>
+      <h2 style={isMouseOver ? mouseOverStyle : {}}>
+        {header} {header && <Arrow />}
+      </h2>
       <p>{text}</p>
     </div>
   );
+}
+
+function Arrow() {
+  return <span style={{ color: "grey" }}>→</span>;
 }
