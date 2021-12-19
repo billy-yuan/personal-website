@@ -25,17 +25,19 @@ export function NavMenu({ isVisible, toggleVisible }: NavMenuProps) {
             to={NavSectionURL["About Me"]}
             onClick={() => toggleVisible(false)}
           >
-            <div className="nav-menu-text-box">{t("navSection.aboutMe")}</div>
+            <div className="nav-menu-text-box">
+              {t("navSection.aboutMe.name")}
+            </div>
           </Link>
           <Link to={NavSectionURL.Blog} onClick={() => toggleVisible(false)}>
-            <div className="nav-menu-text-box">{t("navSection.blog")}</div>
+            <div className="nav-menu-text-box">{t("navSection.blog.name")}</div>
           </Link>
-          <Link to={NavSectionURL.People} onClick={() => toggleVisible(false)}>
-            <div className="nav-menu-text-box">{t("navSection.people")}</div>
-          </Link>
-          <Link to={NavSectionURL.Places} onClick={() => toggleVisible(false)}>
-            <div className="nav-menu-text-box">{t("navSection.places")}</div>
-          </Link>
+          <div className="nav-menu-text-box">{t("navSection.coffee.name")}</div>
+
+          <div className="nav-menu-text-box">
+            {t("navSection.listening.name")}
+          </div>
+          <div className="nav-menu-text-box">{t("navSection.photos.name")}</div>
         </div>
       </div>
     </>
