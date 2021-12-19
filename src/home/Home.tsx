@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { NavSectionURL } from "../utility/types";
 import { HomeContextProvider } from "./hooks/context";
 import "./style.css";
 
@@ -36,14 +38,18 @@ function SectionNav() {
   return (
     <div className="section-nav-container">
       <NavCard header={""} text={""} />
-      <NavCard
-        header={t("navSection.aboutMe.name")}
-        text={t("navSection.aboutMe.text")}
-      />
-      <NavCard
-        header={t("navSection.blog.name")}
-        text={t("navSection.blog.text")}
-      />
+      <Link to={NavSectionURL["About Me"]}>
+        <NavCard
+          header={t("navSection.aboutMe.name")}
+          text={t("navSection.aboutMe.text")}
+        />
+      </Link>
+      <Link to={NavSectionURL.Blog}>
+        <NavCard
+          header={t("navSection.blog.name")}
+          text={t("navSection.blog.text")}
+        />
+      </Link>
       <NavCard
         header={t("navSection.coffee.name")}
         text={t("navSection.coffee.text")}
