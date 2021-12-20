@@ -7,7 +7,6 @@ type PostCardProps = {
   slug: string;
   date: string;
   excerpt: string;
-  imageUrl: string;
 };
 
 export function PostCard({ title, slug, date, excerpt }: PostCardProps) {

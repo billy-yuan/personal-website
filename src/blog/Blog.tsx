@@ -27,7 +27,6 @@ export function Blog() {
           <PostCard
             title={post.title}
             slug={post.slug}
-            imageUrl={post.coverImage.url}
             date={FormatDate.format(post.publishedAt, i18n.language)}
             excerpt={post.excerpt}
           />

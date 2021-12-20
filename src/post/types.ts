@@ -4,7 +4,7 @@ export type Post = {
     __typename: "RichText";
     markdown: string;
   };
-  coverImage: {
+  coverImage?: {
     __typename: "Asset";
     url: string;
   };

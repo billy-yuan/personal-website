@@ -4,12 +4,11 @@
   margin-right: auto;
   padding-top: 100px;
   text-align: left;
-  line-height: 25px;
 }
 
-.post-header {
-  line-height: 15px;
-  height: 75px;
+.post-header h1 {
+  font-size: 2em;
+  line-height: 1.5em;
 }
 .post-header p {
   font-size: 13px;

@@ -34,9 +34,11 @@ export function BlogPost() {
           {FormatDate.format(post.publishedAt, i18n.language)}
         </p>
       </div>
-      <div className="post-cover-image">
-        <img src={post.coverImage.url} />
-      </div>
+      {post.coverImage && (
+        <div className="post-cover-image">
+          <img src={post.coverImage.url} />
+        </div>
+      )}
       <ReactMarkdown
         components={{
           h1: "h3",
