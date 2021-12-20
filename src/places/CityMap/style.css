@@ -1,8 +1,11 @@
 .map-container {
-  width: 100vw;
-  height: 100vh;
+  width: 50vw;
+  /* 2.5vh is the header's top and bottom margin size */
+  height: calc(100vh - 2.5vh - 2.5vh - 50px);
   margin: 0 auto;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   z-index: 0;
 }
 

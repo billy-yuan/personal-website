@@ -1,9 +1,5 @@
-import { useQuery } from "@apollo/client";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
-import { useOnLanguageChange } from "../../utility/useOnLanguageChange";
+import { useState } from "react";
 import {
   blackAndWhiteMapStyle,
   mapContainerStyle,
@@ -11,7 +7,6 @@ import {
   unselectedMarker,
 } from "./mapStyle";
 import { PlaceOverlay } from "./PlaceOverlay/PlaceOverlay";
-import { PLACES_QUERY } from "./query";
 import "./style.css";
 import { GoogleMapsLatLong, Place, ZoomType } from "./types";
 import { ZoomButtons } from "./ZoomButtons/ZoomButtons";
@@ -22,18 +17,14 @@ const googleMapsOptions: google.maps.MapOptions = {
   styles: blackAndWhiteMapStyle,
 };
 
-export function CityMap() {
+type CityMapProps = {
+  data: any;
+};
+
+export function CityMap({ data }: CityMapProps) {
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [clickedPlace, setClickedPlace] = useState<Place | null>(null);
   const [mapCenter, setMapCenter] = useState<GoogleMapsLatLong | null>(null);
-  const { i18n } = useTranslation();
-  const { slug } = useParams();
-
-  const { data, loading, error, refetch } = useQuery(PLACES_QUERY, {
-    variables: { slug, locale: i18n.language },
-  });
-
-  useOnLanguageChange(refetch);
 
   const handleZoomClick = (zoomType: ZoomType) => {
     const zoomLevel = map?.getZoom();
@@ -65,9 +56,6 @@ export function CityMap() {
     });
   };
 
-  if (loading || error) {
-    return <div />;
-  }
   const startingCenter = {
     lat: data.places[0].latLong.latitude,
     lng: data.places[0].latLong.longitude,
