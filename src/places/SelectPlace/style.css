@@ -10,14 +10,13 @@
   line-height: 25px;
   text-align: left;
   margin: 0 auto;
+  margin-bottom: 50px;
   width: 600px;
-  height: 250px;
 }
 
 .city-container {
   display: flex;
-  width: 90vw;
-  max-width: 1200px;
+  width: 600px;
   justify-content: space-between;
   margin: 0 auto;
 }

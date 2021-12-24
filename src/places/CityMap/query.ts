@@ -5,6 +5,8 @@ export const PLACES_QUERY = gql`
     places(locales: [$locale], where: { city: { slug: $slug } }) {
       id
       name
+      goToOrder
+      goodfor
       city {
         name
         slug

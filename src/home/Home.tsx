@@ -50,10 +50,12 @@ function SectionNav() {
           text={t("navSection.blog.text")}
         />
       </Link>
-      <NavCard
-        header={t("navSection.coffee.name")}
-        text={t("navSection.coffee.text")}
-      />
+      <Link to={NavSectionURL.Places}>
+        <NavCard
+          header={t("navSection.coffee.name")}
+          text={t("navSection.coffee.text")}
+        />
+      </Link>
       <NavCard
         header={t("navSection.listening.name")}
         text={t("navSection.listening.text")}

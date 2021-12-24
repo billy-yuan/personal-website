@@ -22,6 +22,7 @@ export type City = {
 export type Place = {
   id: string;
   name: string;
+  goToOrder: string[];
   description: string;
   imageUrl?: {
     __typename: "Asset";

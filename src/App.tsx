@@ -7,10 +7,10 @@ import { MainNavIcons } from "./main-nav/MainNavIcons";
 import { BlogPost } from "./post/BlogPost";
 import { AboutMe } from "./about-me/AboutMe";
 import { NavSectionURL } from "./utility/types";
-import { Places } from "./places/Places";
-import { CityMap } from "./places/CityMap/CityMap";
 import { ListeningTo } from "./listening-to/ListeningTo";
 import { Footer } from "./footer/Footer";
+import { SelectPlace } from "./places/SelectPlace/SelectPlace";
+import PlacesMain from "./places/PlacesMain";
 
 function App() {
   const client = new ApolloClient({
@@ -27,8 +27,8 @@ function App() {
           <Route path={NavSectionURL["About Me"]} element={<AboutMe />} />
           <Route path={NavSectionURL.Blog} element={<Blog />} />
           <Route path={NavSectionURL.Post} element={<BlogPost />} />
-          <Route path={NavSectionURL.Places} element={<Places />} />
-          <Route path={NavSectionURL.City} element={<CityMap />} />
+          <Route path={NavSectionURL.Places} element={<SelectPlace />} />
+          <Route path={NavSectionURL.City} element={<PlacesMain />} />
           <Route path={"/listening-to"} element={<ListeningTo />} />
           <Route path="*" element={<Home />} />
         </Routes>

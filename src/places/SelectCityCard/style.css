@@ -1,7 +1,6 @@
 .select-city-card-container {
-  width: 575px;
-  margin: 10px;
-  height: 500px;
+  width: 295px;
+
   position: relative;
   cursor: pointer;
 }
@@ -11,7 +10,6 @@
   opacity: 0.7;
 }
 .select-city-card-container img {
-  height: 400px;
   object-fit: cover;
   position: relative;
 }
@@ -23,7 +21,7 @@
   align-items: center;
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 200px;
   margin: 0 auto;
   text-align: center;
 }
