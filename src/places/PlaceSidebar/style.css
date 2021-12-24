@@ -1,5 +1,6 @@
 .place-sidebar-container {
-  position: fixed;
+  position: sticky;
   left: 0;
   top: 100px;
+  width: calc(50vw - 5vw - 5vw);
 }

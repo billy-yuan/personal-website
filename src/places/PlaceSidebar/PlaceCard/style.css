@@ -1,0 +1,10 @@
+.place-card-container {
+  text-align: left;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.place-card-text-container {
+  width: calc(50vw - 5vw - 5vw - 190px - 30px);
+}
