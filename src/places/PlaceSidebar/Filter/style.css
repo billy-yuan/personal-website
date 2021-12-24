@@ -1,0 +1,13 @@
+.filter-container {
+  text-align: left;
+  width: 100%;
+}
+
+.filter-options-container {
+  display: flex;
+  justify-content: left;
+}
+
+.filter-options {
+  padding-right: 1vw;
+}

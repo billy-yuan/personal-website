@@ -6,6 +6,7 @@ export const PLACES_QUERY = gql`
       id
       name
       goToOrder
+      goodfor
       city {
         name
         slug
