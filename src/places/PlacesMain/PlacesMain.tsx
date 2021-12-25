@@ -7,8 +7,8 @@ import { CityMap } from "../CityMap/CityMap";
 import { PLACES_QUERY } from "../CityMap/query";
 import PlaceSidebar from "../PlaceSidebar";
 import Filter from "../PlaceSidebar/Filter";
-
-const exampleFilters = ["Work", "Coffee", "Catch up"];
+import { Place } from "../CityMap/types";
+import { useGetFilters } from "./hooks";
 
 function PlacesMain() {
   const { i18n } = useTranslation();
@@ -22,9 +22,10 @@ function PlacesMain() {
     return <div />;
   }
 
+  const filters = useGetFilters(data.places);
   return (
     <div className="places-main-container">
-      <Filter filters={exampleFilters} />
+      <Filter filters={filters} />
       <div className="places-main-content-container">
         <PlaceSidebar data={data} />
         <CityMap data={data} />
