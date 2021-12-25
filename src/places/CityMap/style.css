@@ -1,12 +1,13 @@
 .map-container {
   width: 50vw;
   /* 2.5vh is the header's top and bottom margin size */
-  height: calc(100vh - 2.5vh - 2.5vh - 50px);
+  height: calc(100vh - 50px - 2.5vh);
   margin: 0 auto;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
+  position: sticky;
+
+  /* 11vh is the height of the filter */
+  top: 11vh;
+  z-index: 2;
 }
 
 .zoom-container {

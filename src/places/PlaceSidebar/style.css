@@ -1,6 +1,9 @@
 .place-sidebar-container {
-  position: sticky;
-  left: 0;
-  top: 100px;
+  /* 11vh is the height of the filter */
+  margin-top: 11vh;
   width: calc(50vw - 5vw - 5vw);
+}
+
+.place-card-excess {
+  height: 200px;
 }

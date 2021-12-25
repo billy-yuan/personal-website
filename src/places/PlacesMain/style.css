@@ -1,0 +1,8 @@
+.places-main-container {
+  display: flex;
+  margin-top: calc(50px + 2.5vh);
+}
+
+.places-main-content-container {
+  display: flex;
+}
