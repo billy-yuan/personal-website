@@ -7,8 +7,8 @@ import { CityMap } from "../CityMap/CityMap";
 import { PLACES_QUERY } from "../CityMap/query";
 import PlaceSidebar from "../PlaceSidebar";
 import Filter from "../PlaceSidebar/Filter";
-import { Place } from "../CityMap/types";
-import { useGetFilters } from "./hooks";
+import { useGetFilters } from "./hooks/hooks";
+import { CurrentPlaceProvider, useCurrentPlaceContext } from "./hooks/context";
 
 function PlacesMain() {
   const { i18n } = useTranslation();
@@ -16,6 +16,8 @@ function PlacesMain() {
   const { data, loading, error, refetch } = useQuery(PLACES_QUERY, {
     variables: { slug, locale: i18n.language },
   });
+  const { state, dispatch } = useCurrentPlaceContext();
+
   useOnLanguageChange(refetch);
 
   if (loading || error) {
@@ -24,13 +26,15 @@ function PlacesMain() {
 
   const filters = useGetFilters(data.places);
   return (
-    <div className="places-main-container">
-      <Filter filters={filters} />
-      <div className="places-main-content-container">
-        <PlaceSidebar data={data} />
-        <CityMap data={data} />
+    <CurrentPlaceProvider>
+      <div className="places-main-container">
+        <Filter filters={filters} />
+        <div className="places-main-content-container">
+          <PlaceSidebar data={data} />
+          <CityMap data={data} />
+        </div>
       </div>
-    </div>
+    </CurrentPlaceProvider>
   );
 }
 
