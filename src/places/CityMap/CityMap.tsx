@@ -77,6 +77,7 @@ export function CityMap({ data }: CityMapProps) {
           />
           {data.places.map((place: Place) => (
             <Marker
+              key={`marker-${place.id}`}
               onClick={() => handleMarkerClick(place)}
               icon={
                 place.name === clickedPlace?.name

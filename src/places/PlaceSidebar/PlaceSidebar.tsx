@@ -10,7 +10,7 @@ export function PlaceSidebar({ data }: PlacesSidebarProps) {
     <div className="place-sidebar-container">
       <div className="place-cards-container">
         {data.places.map((place: Place) => {
-          return <PlaceCard place={place} />;
+          return <PlaceCard key={`placecard-${place.id}`} place={place} />;
         })}
       </div>
       {/* place-card-excess is so there is space between 
