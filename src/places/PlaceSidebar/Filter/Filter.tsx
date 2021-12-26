@@ -8,6 +8,7 @@ function Filter({ filters }: FilterProps) {
     <div className="filter-container">
       <div className="filter-header">Show me places for:</div>
       <div className="filter-options-container">
+        <span className="filter-options">All</span>
         {filters.map((filter) => (
           <span key={`filter-${filter}`} className="filter-options">
             {filter}

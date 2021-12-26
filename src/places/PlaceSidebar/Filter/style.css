@@ -17,3 +17,7 @@
 .filter-options {
   padding-right: 1vw;
 }
+
+.filter-header {
+  font-weight: bold;
+}
