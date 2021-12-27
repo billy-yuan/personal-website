@@ -16,6 +16,7 @@
 
 .filter-options {
   padding-right: 1vw;
+  cursor: pointer;
 }
 
 .filter-header {
