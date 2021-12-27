@@ -9,7 +9,7 @@ const CurrentPlaceContext = createContext<{
   dispatch: () => null,
 });
 
-function CurrentPlaceProvider({ children }: any) {
+function PlaceProvider({ children }: any) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -19,6 +19,6 @@ function CurrentPlaceProvider({ children }: any) {
   );
 }
 
-const useCurrentPlaceContext = () => useContext(CurrentPlaceContext);
+const usePlaceContext = () => useContext(CurrentPlaceContext);
 
-export { CurrentPlaceProvider, useCurrentPlaceContext };
+export { PlaceProvider, usePlaceContext };
