@@ -8,7 +8,7 @@ type PlacesState = {
 type PlacesAction = {
   type: PlacesActionType;
   payload: {
-    currentPlace?: Place;
+    currentPlace?: Place | null;
     filter?: string[];
   };
 };
