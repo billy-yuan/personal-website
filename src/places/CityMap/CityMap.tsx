@@ -64,7 +64,7 @@ export function CityMap({ data }: CityMapProps) {
   // since that will cause the map to pan unnecessarily.
   useEffect(() => {
     if (data.length > 0) {
-      setMapCenter({
+      map?.panTo({
         lat: data[0].latLong.latitude,
         lng: data[0].latLong.longitude,
       });
