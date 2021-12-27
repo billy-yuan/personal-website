@@ -3,15 +3,16 @@ import PlaceCard from "./PlaceCard";
 import "./style.css";
 
 type PlacesSidebarProps = {
-  data: any;
+  data: Place[];
 };
+
 export function PlaceSidebar({ data }: PlacesSidebarProps) {
   return (
     <div className="place-sidebar-container">
       <div className="place-cards-container">
-        {data.places.map((place: Place) => {
-          return <PlaceCard key={`placecard-${place.id}`} place={place} />;
-        })}
+        {data.map((place: Place) => (
+          <PlaceCard key={`placecard-${place.id}`} place={place} />
+        ))}
       </div>
       {/* place-card-excess is so there is space between 
       the last card and the footer. 

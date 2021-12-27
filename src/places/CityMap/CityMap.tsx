@@ -1,5 +1,6 @@
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import defaultCenter from "./defaultCenter";
 import {
   blackAndWhiteMapStyle,
   mapContainerStyle,
@@ -18,13 +19,15 @@ const googleMapsOptions: google.maps.MapOptions = {
 };
 
 type CityMapProps = {
-  data: any;
+  data: Place[];
 };
 
 export function CityMap({ data }: CityMapProps) {
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [clickedPlace, setClickedPlace] = useState<Place | null>(null);
-  const [mapCenter, setMapCenter] = useState<GoogleMapsLatLong | null>(null);
+  const [mapCenter, setMapCenter] = useState<GoogleMapsLatLong>(
+    defaultCenter.NEW_YORK
+  );
 
   const handleZoomClick = (zoomType: ZoomType) => {
     const zoomLevel = map?.getZoom();
@@ -56,10 +59,17 @@ export function CityMap({ data }: CityMapProps) {
     });
   };
 
-  const startingCenter = {
-    lat: data.places[0].latLong.latitude,
-    lng: data.places[0].latLong.longitude,
-  };
+  // only update map center if there is data.
+  // if there is no data, then do not update the map center
+  // since that will cause the map to pan unnecessarily.
+  useEffect(() => {
+    if (data.length > 0) {
+      setMapCenter({
+        lat: data[0].latLong.latitude,
+        lng: data[0].latLong.longitude,
+      });
+    }
+  }, [data]);
 
   return (
     <div className="map-container">
@@ -69,13 +79,13 @@ export function CityMap({ data }: CityMapProps) {
           options={googleMapsOptions}
           mapContainerStyle={mapContainerStyle}
           zoom={12}
-          center={mapCenter ? mapCenter : startingCenter}
+          center={mapCenter}
         >
           <ZoomButtons
             zoomInCallback={() => handleZoomClick(ZoomType.ZOOM_IN)}
             zoomOutCallback={() => handleZoomClick(ZoomType.ZOOM_OUT)}
           />
-          {data.places.map((place: Place) => (
+          {data.map((place: Place) => (
             <Marker
               key={`marker-${place.id}`}
               onClick={() => handleMarkerClick(place)}
