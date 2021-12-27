@@ -6,7 +6,8 @@
   top: 0;
   width: 90vw;
   height: 50px;
-  margin-top: 2.5vh;
+  padding-top: 2.5vh;
+  background-color: white;
 }
 
 .home-icon {

@@ -23,6 +23,7 @@ export type Place = {
   id: string;
   name: string;
   goToOrder: string[];
+  goodfor: string[];
   description: string;
   imageUrl?: {
     __typename: "Asset";

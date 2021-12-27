@@ -1,6 +1,11 @@
 .filter-container {
   text-align: left;
   width: 100%;
+  position: fixed;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  background-color: white;
+  z-index: 1;
 }
 
 .filter-options-container {
@@ -10,4 +15,9 @@
 
 .filter-options {
   padding-right: 1vw;
+  cursor: pointer;
+}
+
+.filter-header {
+  font-weight: bold;
 }
