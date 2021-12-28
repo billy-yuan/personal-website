@@ -3,6 +3,7 @@ import { Place } from "../../CityMap/types";
 type PlacesState = {
   filter: string[];
   currentPlace: Place | null;
+  clickedPlace: Place | null;
 };
 
 type PlacesAction = {
@@ -10,11 +11,13 @@ type PlacesAction = {
   payload: {
     currentPlace?: Place | null;
     filter?: string[];
+    clickedPlace?: Place | null;
   };
 };
 
 enum PlacesActionType {
   "SET_PLACE",
+  "SET_CLICKED_PLACE",
   "SET_FILTER",
   "REMOVE_FILTER",
 }
@@ -22,6 +25,7 @@ enum PlacesActionType {
 const initialState: PlacesState = {
   filter: [],
   currentPlace: null,
+  clickedPlace: null,
 };
 
 function reducer(state: PlacesState, action: PlacesAction): PlacesState {
@@ -35,6 +39,14 @@ function reducer(state: PlacesState, action: PlacesAction): PlacesState {
         };
       }
       throw new Error("Payload is missing currentPlace");
+    case PlacesActionType.SET_CLICKED_PLACE:
+      if (action.payload.clickedPlace !== undefined) {
+        return {
+          ...state,
+          clickedPlace: action.payload.clickedPlace,
+        };
+      }
+      throw new Error("Payload is mising clickedPlace");
     case PlacesActionType.SET_FILTER:
       if (action.payload.filter !== undefined) {
         return {

@@ -1,6 +1,7 @@
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
 import { usePlaceContext } from "../PlacesMain/hooks/context";
+import { PlacesActionType } from "../PlacesMain/hooks/reducer";
 import defaultCenter from "./defaultCenter";
 import {
   blackAndWhiteMapStyle,
@@ -27,7 +28,7 @@ export function CityMap({ data }: CityMapProps) {
   const [mapCenter, setMapCenter] = useState<GoogleMapsLatLong>(
     defaultCenter.NEW_YORK
   );
-  const { state } = usePlaceContext();
+  const { state, dispatch } = usePlaceContext();
 
   const handleZoomClick = (zoomType: ZoomType) => {
     const zoomLevel = map?.getZoom();
@@ -56,6 +57,18 @@ export function CityMap({ data }: CityMapProps) {
       lat: place.latLong.latitude,
       lng: place.latLong.longitude,
     });
+    dispatch({
+      type: PlacesActionType.SET_CLICKED_PLACE,
+      payload: {
+        clickedPlace: place,
+      },
+    });
+    dispatch({
+      type: PlacesActionType.SET_PLACE,
+      payload: {
+        currentPlace: place,
+      },
+    });
   };
 
   // only update map center if there is data.
@@ -69,6 +82,16 @@ export function CityMap({ data }: CityMapProps) {
       });
     }
   }, [data]);
+
+  // pan to currentPlace
+  useEffect(() => {
+    if (state.currentPlace) {
+      map?.panTo({
+        lat: state.currentPlace.latLong.latitude,
+        lng: state.currentPlace.latLong.longitude,
+      });
+    }
+  }, [state.currentPlace]);
 
   return (
     <div className="map-container">

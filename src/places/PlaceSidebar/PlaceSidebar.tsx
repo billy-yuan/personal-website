@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Place } from "../CityMap/types";
+import { usePlaceContext } from "../PlacesMain/hooks/context";
 import PlaceCard from "./PlaceCard";
 import "./style.css";
 
@@ -7,6 +9,11 @@ type PlacesSidebarProps = {
 };
 
 export function PlaceSidebar({ data }: PlacesSidebarProps) {
+  const { state } = usePlaceContext();
+
+  // scroll to selected place
+  useEffect(() => {}, [state.currentPlace]);
+
   return (
     <div className="place-sidebar-container">
       <div className="place-cards-container">
