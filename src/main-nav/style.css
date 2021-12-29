@@ -47,7 +47,7 @@
 
 .nav-menu-container {
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   width: 400px;
   height: 100vh;
   right: 0;
@@ -67,7 +67,7 @@
   width: calc(100vw - 400px);
   height: 100vh;
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   left: 0;
   top: 0;
 }
