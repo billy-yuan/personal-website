@@ -1,5 +1,7 @@
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
+import { usePlaceContext } from "../PlacesMain/hooks/context";
+import { PlacesActionType } from "../PlacesMain/hooks/reducer";
 import defaultCenter from "./defaultCenter";
 import {
   blackAndWhiteMapStyle,
@@ -7,7 +9,6 @@ import {
   selectedMarker,
   unselectedMarker,
 } from "./mapStyle";
-import { PlaceOverlay } from "./PlaceOverlay/PlaceOverlay";
 import "./style.css";
 import { GoogleMapsLatLong, Place, ZoomType } from "./types";
 import { ZoomButtons } from "./ZoomButtons/ZoomButtons";
@@ -24,10 +25,10 @@ type CityMapProps = {
 
 export function CityMap({ data }: CityMapProps) {
   const [map, setMap] = useState<google.maps.Map | null>(null);
-  const [clickedPlace, setClickedPlace] = useState<Place | null>(null);
   const [mapCenter, setMapCenter] = useState<GoogleMapsLatLong>(
     defaultCenter.NEW_YORK
   );
+  const { state, dispatch } = usePlaceContext();
 
   const handleZoomClick = (zoomType: ZoomType) => {
     const zoomLevel = map?.getZoom();
@@ -47,7 +48,6 @@ export function CityMap({ data }: CityMapProps) {
   };
 
   const handleMarkerClick = (place: Place) => {
-    setClickedPlace(place);
     const newCenter: GoogleMapsLatLong = {
       lat: place.latLong.latitude,
       lng: place.latLong.longitude,
@@ -56,6 +56,18 @@ export function CityMap({ data }: CityMapProps) {
     map?.panTo({
       lat: place.latLong.latitude,
       lng: place.latLong.longitude,
+    });
+    dispatch({
+      type: PlacesActionType.SET_CLICKED_PLACE,
+      payload: {
+        clickedPlace: place,
+      },
+    });
+    dispatch({
+      type: PlacesActionType.SET_PLACE,
+      payload: {
+        currentPlace: place,
+      },
     });
   };
 
@@ -70,6 +82,16 @@ export function CityMap({ data }: CityMapProps) {
       });
     }
   }, [data]);
+
+  // pan to currentPlace
+  useEffect(() => {
+    if (state.currentPlace) {
+      map?.panTo({
+        lat: state.currentPlace.latLong.latitude,
+        lng: state.currentPlace.latLong.longitude,
+      });
+    }
+  }, [state.currentPlace]);
 
   return (
     <div className="map-container">
@@ -90,7 +112,7 @@ export function CityMap({ data }: CityMapProps) {
               key={`marker-${place.id}`}
               onClick={() => handleMarkerClick(place)}
               icon={
-                place.name === clickedPlace?.name
+                place.name === state.currentPlace?.name
                   ? selectedMarker
                   : unselectedMarker
               }
@@ -100,12 +122,6 @@ export function CityMap({ data }: CityMapProps) {
               }}
             />
           ))}
-          {clickedPlace && (
-            <PlaceOverlay
-              clickedPlace={clickedPlace}
-              setClickedPlace={setClickedPlace}
-            />
-          )}
         </GoogleMap>
       </LoadScript>
     </div>

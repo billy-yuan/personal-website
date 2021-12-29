@@ -1,9 +1,10 @@
 .map-container {
   width: 50vw;
-  height: calc(100vh - 11vh);
+  height: calc(80vh - 11vh);
   margin: 0 auto;
-  position: sticky;
-
+  position: fixed;
+  right: 5vh;
+  bottom: 5vh;
   /* 11vh is the height of the filter */
   top: 11vh;
   z-index: 2;

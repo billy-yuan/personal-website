@@ -1,4 +1,4 @@
-import { Place } from "../CityMap/types";
+import { Place } from "../../CityMap/types";
 
 /**
  * Get unique values of `goodfor` from an array of Places.
