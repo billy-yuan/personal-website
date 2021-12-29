@@ -8,6 +8,11 @@ type PlaceCardProps = {
   place: Place;
 };
 
+/**
+ * Gets the pixel amount for `v%` of the viewport.
+ * @param v how what % of the viewport to calculate. Example: `v=30` means 30% of the viewport.
+ * @returns
+ */
 function vh(v: number) {
   var h = Math.max(
     document.documentElement.clientHeight,
