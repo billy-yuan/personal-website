@@ -5,8 +5,10 @@
   padding-top: 100px;
   margin: 0 auto;
   text-align: left;
+  font-size: 0.9rem;
+  color: grey;
 }
 
 .footer-container a {
-  text-decoration: none;
+  text-decoration: underline;
 }
