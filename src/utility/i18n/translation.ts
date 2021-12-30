@@ -26,6 +26,10 @@ export const translation = {
       blog: {
         header: "Blog",
       },
+      footer: {
+        text: "See the code ",
+        here: "here.",
+      },
     },
   },
   ja: {
@@ -54,6 +58,10 @@ export const translation = {
       },
       blog: {
         header: "ブログ",
+      },
+      footer: {
+        text: "コードは",
+        here: "こちらです。",
       },
     },
   },
