@@ -49,7 +49,7 @@ export function SelectPlace() {
       </div>
       <div className="city-container">
         {data.cities.map((city: City) => (
-          <Link to={`${NavSectionURL.Places}/${city.slug}`}>
+          <Link to={`${NavSectionURL.Coffee}/${city.slug}`}>
             <SelectCityCard
               key={city.id}
               city={city.name}

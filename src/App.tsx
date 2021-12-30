@@ -27,9 +27,8 @@ function App() {
           <Route path={NavSectionURL["About Me"]} element={<AboutMe />} />
           <Route path={NavSectionURL.Blog} element={<Blog />} />
           <Route path={NavSectionURL.Post} element={<BlogPost />} />
-          <Route path={NavSectionURL.Places} element={<SelectPlace />} />
+          <Route path={NavSectionURL.Coffee} element={<SelectPlace />} />
           <Route path={NavSectionURL.City} element={<PlacesMain />} />
-          <Route path={"/listening-to"} element={<ListeningTo />} />
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer />

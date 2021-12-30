@@ -3,7 +3,7 @@ export enum NavSection {
   "Blog" = "Blog",
   "Post" = "Post",
   "People" = "People",
-  "Places" = "Places",
+  "Coffee" = "Coffee",
   "City" = "City",
   "None" = "None",
 }
@@ -13,7 +13,7 @@ export const NavSectionURL: { [key in NavSection]: string } = {
   Blog: "/blog",
   Post: "/post/:slug",
   People: "/people",
-  City: "/places/:slug",
-  Places: "/places",
+  City: "/coffee/:slug",
+  Coffee: "/coffee",
   None: "/",
 };

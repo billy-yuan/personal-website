@@ -37,7 +37,6 @@ function SectionNav() {
   const { t } = useTranslation();
   return (
     <div className="section-nav-container">
-      <NavCard header={""} text={""} />
       <Link to={NavSectionURL["About Me"]}>
         <NavCard
           header={t("navSection.aboutMe.name")}
@@ -50,16 +49,12 @@ function SectionNav() {
           text={t("navSection.blog.text")}
         />
       </Link>
-      <Link to={NavSectionURL.Places}>
+      <Link to={NavSectionURL.Coffee}>
         <NavCard
           header={t("navSection.coffee.name")}
           text={t("navSection.coffee.text")}
         />
       </Link>
-      <NavCard
-        header={t("navSection.listening.name")}
-        text={t("navSection.listening.text")}
-      />
       <NavCard
         header={t("navSection.photos.name")}
         text={t("navSection.photos.text")}
