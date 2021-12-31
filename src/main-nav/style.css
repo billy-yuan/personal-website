@@ -34,17 +34,6 @@
   font-size: 22px;
 }
 
-.home-icon:hover {
-  transition: background-color 0.4s;
-  background-color: #323529;
-  color: white;
-}
-
-.nav-icon:hover {
-  transition: font-size 0.05s;
-  font-size: 25px;
-}
-
 .nav-menu-container {
   position: fixed;
   z-index: 5;
@@ -107,5 +96,18 @@
 
   .nav-menu-text-box {
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .home-icon:hover {
+    transition: background-color 0.4s;
+    background-color: #323529;
+    color: white;
+  }
+
+  .nav-icon:hover {
+    transition: font-size 0.05s;
+    font-size: 25px;
   }
 }
