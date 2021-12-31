@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { isMobile } from "../utility/utility";
 import { NavMenu } from "./NavMenu";
 import "./style.css";
 
@@ -14,9 +15,17 @@ export function MainNavIcons({ children }: any) {
 
   return (
     <>
-      <div className="main-nav-icons-container">
+      <div
+        className="main-nav-icons-container"
+        style={isNavMenuVisible ? { background: "none" } : {}}
+      >
         <Link to="/">
-          <div className="home-icon">BY</div>
+          <div
+            className="home-icon"
+            style={isNavMenuVisible && isMobile() ? { display: "none" } : {}}
+          >
+            BY
+          </div>
         </Link>
         <div
           className="right-nav-icons"

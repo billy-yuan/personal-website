@@ -40,3 +40,7 @@ export class FormatDate {
 export function url(address: string): string {
   return `url('${address}')`;
 }
+
+export function isMobile(): boolean {
+  return window.matchMedia("screen and (max-width: 760px)").matches;
+}
