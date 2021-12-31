@@ -1,6 +1,8 @@
+import "./style.css";
+
 export function GetInTouch() {
   return (
-    <div style={{ textAlign: "left" }}>
+    <div className="get-in-touch-container">
       <div>hello@billyyuan.com </div>
       <div>
         <a
