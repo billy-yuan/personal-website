@@ -1,5 +1,5 @@
 .post-container {
-  width: 550px;
+  width: calc(760px - 10vw);
   margin-left: auto;
   margin-right: auto;
   padding-top: 100px;
@@ -8,21 +8,29 @@
 }
 
 .post-header {
-  line-height: 15px;
-  height: 75px;
+  line-height: 2.5em;
 }
 .post-header p {
   font-size: 13px;
 }
 
 .post-cover-image {
-  height: calc(550px / 1.5);
-  width: 550px;
+  width: calc(760px - 10vw);
   background-size: contain;
   background-repeat: no-repeat;
   margin: 0 auto;
 }
 
 .post-cover-image img {
-  width: 550px;
+  width: 100%;
+}
+
+@media screen and (max-width: 760px) {
+  .post-container {
+    width: 100%;
+  }
+
+  .post-cover-image {
+    width: 100%;
+  }
 }

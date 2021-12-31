@@ -1,13 +1,14 @@
 .about-me-container {
   padding-top: 100px;
-  width: 800px;
+  max-width: 760px;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
 }
 
 .left-about-me {
-  width: 500px;
+  max-width: 500px;
+  width: 50vw;
   text-align: left;
 }
 
@@ -26,4 +27,27 @@
 .about-me-picture {
   width: 200px;
   height: 250px;
+}
+
+.get-in-touch-container {
+  text-align: left;
+}
+@media screen and (max-width: 760px) {
+  .about-me-container {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+
+  .left-about-me {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .right-about-me {
+    margin: 0 auto;
+  }
+
+  .get-in-touch-container {
+    text-align: center;
+  }
 }

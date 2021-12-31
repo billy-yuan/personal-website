@@ -2,7 +2,7 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
-  z-index: 4;
+  z-index: 6;
   top: 0;
   width: 90vw;
   height: 50px;
@@ -46,7 +46,7 @@
 }
 
 .nav-menu-container {
-  position: absolute;
+  position: fixed;
   z-index: 5;
   width: 400px;
   height: 100vh;
@@ -66,7 +66,7 @@
   background-color: rgb(0, 0, 0, 0.5);
   width: calc(100vw - 400px);
   height: 100vh;
-  position: absolute;
+  position: fixed;
   z-index: 5;
   left: 0;
   top: 0;
@@ -89,4 +89,23 @@
 .nav-menu-text-box:hover {
   transition: 1.2s;
   border-color: white;
+}
+
+.close-nav-menu {
+  padding: 15px 0 15px 0;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+  padding-right: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 760px) {
+  .nav-menu-container {
+    width: 100%;
+  }
+
+  .nav-menu-text-box {
+    text-align: center;
+  }
 }
