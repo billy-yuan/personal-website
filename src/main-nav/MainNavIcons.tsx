@@ -6,7 +6,7 @@ import "./style.css";
 
 export function MainNavIcons({ children }: any) {
   const [isNavMenuVisible, toggleNavMenu] = useState<boolean>(false);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const selectedLanguageStyle = {
     textDecoration: "underline",
     fontWeight: "600",
