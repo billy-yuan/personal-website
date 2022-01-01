@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { isMobile } from "../utility/utility";
+import { useIsMobile } from "../utility/useIsMobile";
 import { NavMenu } from "./NavMenu";
 import "./style.css";
 
 export function MainNavIcons({ children }: any) {
   const [isNavMenuVisible, toggleNavMenu] = useState<boolean>(false);
+  const isMobile = useIsMobile();
   const { i18n } = useTranslation();
   const selectedLanguageStyle = {
     textDecoration: "underline",
@@ -22,7 +23,7 @@ export function MainNavIcons({ children }: any) {
         <Link to="/">
           <div
             className="home-icon"
-            style={isNavMenuVisible && isMobile() ? { display: "none" } : {}}
+            style={isNavMenuVisible && isMobile ? { display: "none" } : {}}
           >
             BY
           </div>

@@ -11,6 +11,8 @@ import { useGetFilters } from "./hooks/hooks";
 import { PlaceProvider, usePlaceContext } from "./hooks/context";
 import { Place } from "../CityMap/types";
 import { useEffect, useState } from "react";
+import MobilePlaceCarousel from "../MobilePlaceCarousel";
+import { useIsMobile } from "../../utility/useIsMobile";
 
 function useFilterData(places: Place[]) {
   const { state } = usePlaceContext();
@@ -41,10 +43,15 @@ function useFilterData(places: Place[]) {
 
 function PlacesContentContainer({ data }: { data: Place[] }) {
   const filteredData = useFilterData(data);
+  const isMobile = useIsMobile();
 
   return (
     <div className="places-main-content-container">
-      <PlaceSidebar data={filteredData} />
+      {isMobile ? (
+        <MobilePlaceCarousel />
+      ) : (
+        <PlaceSidebar data={filteredData} />
+      )}
       <CityMap data={filteredData} />
     </div>
   );
