@@ -1,5 +1,5 @@
 .select-place-container {
-  width: 100%;
+  width: 760px;
   margin: 0 auto;
 }
 
@@ -11,12 +11,24 @@
   text-align: left;
   margin: 0 auto;
   margin-bottom: 50px;
-  width: 600px;
+  width: 760px;
+  max-width: 760px;
 }
 
 .city-container {
   display: flex;
-  width: 600px;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 760px) {
+  .select-place-container {
+    width: 100%;
+  }
+
+  .select-place-subheader {
+    width: 100%;
+  }
 }
