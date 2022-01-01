@@ -7,3 +7,18 @@
   display: flex;
   min-height: 100vh;
 }
+
+@media screen and (max-width: 760px) {
+  .places-main-container {
+    height: 100%;
+  }
+  .places-main-content-container {
+    flex-direction: column-reverse;
+
+    justify-content: flex-end;
+    margin-top: 12vh;
+    width: 100%;
+    max-height: 50vh;
+    min-height: 50vh;
+  }
+}

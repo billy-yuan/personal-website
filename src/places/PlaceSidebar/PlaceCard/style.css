@@ -9,3 +9,9 @@
 .place-card-text-container {
   width: calc(50vw - 5vw - 5vw - 190px - 30px);
 }
+
+@media screen and (max-width: 760px) {
+  .place-card-text-container {
+    width: 100%;
+  }
+}
