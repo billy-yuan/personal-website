@@ -48,7 +48,7 @@ function PlacesContentContainer({ data }: { data: Place[] }) {
   return (
     <div className="places-main-content-container">
       {isMobile ? (
-        <MobilePlaceCarousel />
+        <MobilePlaceCarousel data={filteredData} />
       ) : (
         <PlaceSidebar data={filteredData} />
       )}

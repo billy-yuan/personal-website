@@ -4,6 +4,7 @@ type PlacesState = {
   filter: string[];
   currentPlace: Place | null;
   clickedPlace: Place | null;
+  currentIndex: number;
 };
 
 type PlacesAction = {
@@ -12,6 +13,7 @@ type PlacesAction = {
     currentPlace?: Place | null;
     filter?: string[];
     clickedPlace?: Place | null;
+    currentIndex?: number;
   };
 };
 
@@ -20,12 +22,14 @@ enum PlacesActionType {
   "SET_CLICKED_PLACE",
   "SET_FILTER",
   "REMOVE_FILTER",
+  "SET_INDEX",
 }
 
 const initialState: PlacesState = {
   filter: [],
   currentPlace: null,
   clickedPlace: null,
+  currentIndex: 0,
 };
 
 function reducer(state: PlacesState, action: PlacesAction): PlacesState {
@@ -64,6 +68,11 @@ function reducer(state: PlacesState, action: PlacesAction): PlacesState {
         };
       }
       throw new Error("Payload is missing filter");
+    case PlacesActionType.SET_INDEX:
+      if (action.payload.currentIndex !== undefined) {
+        return { ...state, currentIndex: action.payload.currentIndex };
+      }
+      throw new Error("Payload is missing currentIndex");
     default:
       throw new Error("Action type is not valid");
   }
