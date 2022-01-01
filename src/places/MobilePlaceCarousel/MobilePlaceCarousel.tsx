@@ -21,6 +21,22 @@ function MobilePlaceCarousel({ data }: MobilePlaceCarouselProps) {
     });
   }, [data]);
 
+  // Update currentIndex if data changes
+  useEffect(() => {
+    let newIndex = 0;
+    for (let index in data) {
+      if (state.currentPlace?.id === data[index].id) {
+        newIndex = Number(index);
+      }
+    }
+    dispatch({
+      type: PlacesActionType.SET_INDEX,
+      payload: {
+        currentIndex: newIndex,
+      },
+    });
+  }, [data]);
+
   // Update currentPlace whenever currentIndex updates
   useEffect(() => {
     dispatch({
