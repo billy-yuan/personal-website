@@ -61,11 +61,6 @@ export function CityMap({ data }: CityMapProps) {
       type: PlacesActionType.SET_CLICKED_PLACE,
       payload: {
         clickedPlace: place,
-      },
-    });
-    dispatch({
-      type: PlacesActionType.SET_PLACE,
-      payload: {
         currentPlace: place,
       },
     });

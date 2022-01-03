@@ -21,14 +21,20 @@
   align-items: center;
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 240px;
+  width: 240px;
   margin: 0 auto;
   text-align: center;
 }
 
-.select-city-card-container h2 {
+.select-city-card-container p {
   margin: 0 auto;
-  background-color: black;
   width: fit-content;
   padding: 8px;
+}
+
+@media screen and (max-width: 760px) {
+  .select-city-card-container {
+    padding-bottom: 40px;
+  }
 }
