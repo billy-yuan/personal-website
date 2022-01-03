@@ -55,7 +55,7 @@ function reducer(state: PlacesState, action: PlacesAction): PlacesState {
           clickedPlace: action.payload.clickedPlace,
         };
       }
-      throw new Error("Payload is mising clickedPlace");
+      throw new Error("Payload is missing clickedPlace and/or currentPlace");
     case PlacesActionType.CLEAR_CLICKED_PLACE:
       return { ...state, clickedPlace: null };
     case PlacesActionType.SET_FILTER:
