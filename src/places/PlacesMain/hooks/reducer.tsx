@@ -20,6 +20,7 @@ type PlacesAction = {
 enum PlacesActionType {
   "SET_PLACE",
   "SET_CLICKED_PLACE",
+  "CLEAR_CLICKED_PLACE",
   "SET_FILTER",
   "REMOVE_FILTER",
   "SET_INDEX",
@@ -44,13 +45,19 @@ function reducer(state: PlacesState, action: PlacesAction): PlacesState {
       }
       throw new Error("Payload is missing currentPlace");
     case PlacesActionType.SET_CLICKED_PLACE:
-      if (action.payload.clickedPlace !== undefined) {
+      if (
+        action.payload.clickedPlace !== undefined &&
+        action.payload.currentPlace !== undefined
+      ) {
         return {
           ...state,
+          currentPlace: action.payload.currentPlace,
           clickedPlace: action.payload.clickedPlace,
         };
       }
       throw new Error("Payload is mising clickedPlace");
+    case PlacesActionType.CLEAR_CLICKED_PLACE:
+      return { ...state, clickedPlace: null };
     case PlacesActionType.SET_FILTER:
       if (action.payload.filter !== undefined) {
         return {

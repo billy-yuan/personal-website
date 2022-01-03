@@ -42,10 +42,8 @@ function PlaceCard({ place }: PlaceCardProps) {
 
     return () => {
       dispatch({
-        type: PlacesActionType.SET_CLICKED_PLACE,
-        payload: {
-          clickedPlace: null,
-        },
+        type: PlacesActionType.CLEAR_CLICKED_PLACE,
+        payload: {},
       });
     };
   }, [state.currentPlace]);

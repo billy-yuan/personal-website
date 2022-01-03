@@ -10,3 +10,8 @@
 .mobile-place-carousel-no-results {
   padding: 30px;
 }
+
+.mobile-place-carousel-nav-buttons {
+  position: absolute;
+  bottom: 0;
+}

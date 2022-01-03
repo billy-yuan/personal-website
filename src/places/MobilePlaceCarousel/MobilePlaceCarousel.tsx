@@ -27,6 +27,7 @@ function MobilePlaceCarousel({ data }: MobilePlaceCarouselProps) {
     for (let index in data) {
       if (state.currentPlace?.id === data[index].id) {
         newIndex = Number(index);
+        break;
       }
     }
     dispatch({
@@ -37,29 +38,41 @@ function MobilePlaceCarousel({ data }: MobilePlaceCarouselProps) {
     });
   }, [data]);
 
-  // Update currentPlace whenever currentIndex updates
+  // Update currentIndex if currentPlace changes. If the user clicks on a marker,
+  // then the currentPlace changes. This hook updates the currentIndex.
   useEffect(() => {
-    dispatch({
-      type: PlacesActionType.SET_PLACE,
-      payload: { currentPlace: data[state.currentIndex] },
-    });
-  }, [state.currentIndex]);
+    let newIndex = 0;
+    for (let index in data) {
+      if (state.currentPlace?.id === data[index].id) {
+        newIndex = Number(index);
+        dispatch({
+          type: PlacesActionType.SET_INDEX,
+          payload: {
+            currentIndex: newIndex,
+          },
+        });
+        break;
+      }
+    }
+  }, [state.currentPlace]);
 
   const handleBackClick = () => {
     const newIndex =
       state.currentIndex === 0 ? data.length - 1 : state.currentIndex - 1;
+    console.log(newIndex);
     dispatch({
-      type: PlacesActionType.SET_INDEX,
-      payload: { currentIndex: newIndex },
+      type: PlacesActionType.SET_PLACE,
+      payload: { currentPlace: data[newIndex] },
     });
   };
 
   const handleForwardClick = () => {
     const newIndex =
       state.currentIndex === data.length - 1 ? 0 : state.currentIndex + 1;
+    console.log(newIndex);
     dispatch({
-      type: PlacesActionType.SET_INDEX,
-      payload: { currentIndex: newIndex },
+      type: PlacesActionType.SET_PLACE,
+      payload: { currentPlace: data[newIndex] },
     });
   };
 
