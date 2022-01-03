@@ -13,5 +13,18 @@
 
 .mobile-place-carousel-nav-buttons {
   position: absolute;
+  width: 90%;
+  height: 7vh;
+  justify-content: space-between;
+  display: flex;
   bottom: 0;
+  background-color: white;
+}
+
+.mobile-place-carousel-nav-buttons button {
+  width: 30px;
+  height: 30px;
+  color: black;
+  background-color: white;
+  font-size: 1.5rem;
 }
