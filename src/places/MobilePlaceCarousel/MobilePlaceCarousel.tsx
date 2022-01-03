@@ -59,7 +59,7 @@ function MobilePlaceCarousel({ data }: MobilePlaceCarouselProps) {
   const handleBackClick = () => {
     const newIndex =
       state.currentIndex === 0 ? data.length - 1 : state.currentIndex - 1;
-    console.log(newIndex);
+
     dispatch({
       type: PlacesActionType.SET_PLACE,
       payload: { currentPlace: data[newIndex] },
@@ -69,7 +69,7 @@ function MobilePlaceCarousel({ data }: MobilePlaceCarouselProps) {
   const handleForwardClick = () => {
     const newIndex =
       state.currentIndex === data.length - 1 ? 0 : state.currentIndex + 1;
-    console.log(newIndex);
+
     dispatch({
       type: PlacesActionType.SET_PLACE,
       payload: { currentPlace: data[newIndex] },
