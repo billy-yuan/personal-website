@@ -32,7 +32,7 @@ export function MainNavIcons({ children }: any) {
           className="right-nav-icons"
           style={{ color: isNavMenuVisible ? "white" : "black" }}
         >
-          <div className="choose-language">
+          {/* <div className="choose-language">
             <span
               onClick={() => i18n.changeLanguage("en")}
               style={i18n.language === "en" ? selectedLanguageStyle : {}}
@@ -46,7 +46,7 @@ export function MainNavIcons({ children }: any) {
             >
               JP
             </span>
-          </div>
+          </div> */}
           <div
             className="nav-icon"
             onClick={() => toggleNavMenu(!isNavMenuVisible)}
