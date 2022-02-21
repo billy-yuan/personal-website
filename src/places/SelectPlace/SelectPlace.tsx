@@ -39,11 +39,10 @@ export function SelectPlace() {
       </div>
       <div className="select-place-subheader">
         <p>
-          I have lived extensively in Austin and New York, and friends would
-          often ask for recommendations. In addition, I believe the places you
-          visit can help someone know me more. So whether you're looking for a
-          place to try or would like to learn more about me, feel free to look
-          at my recommendations below!
+          I enjoy exploring new coffee shops and cafes in New York. I believe
+          the places you visit can help someone know me more. So whether you're
+          looking for a place to try or would like to learn more about me, feel
+          free to look at my recommendations below!
         </p>
       </div>
       <div className="city-container">
