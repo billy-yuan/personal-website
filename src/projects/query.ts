@@ -5,9 +5,7 @@ export const PROJECTS_QUERY = gql`
     projects(locales: [$locale]) {
       id
       title
-      markdown {
-        markdown
-      }
+      slug
       thumbnailImage {
         id
         url
