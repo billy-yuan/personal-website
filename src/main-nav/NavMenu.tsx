@@ -37,7 +37,15 @@ export function NavMenu({ isVisible, toggleVisible }: NavMenuProps) {
               {t("navSection.coffee.name")}
             </div>
           </Link>
-          <div className="nav-menu-text-box">{t("navSection.photos.name")}</div>
+          {/* <div className="nav-menu-text-box">{t("navSection.photos.name")}</div> */}
+          <Link
+            to={NavSectionURL.Projects}
+            onClick={() => toggleVisible(false)}
+          >
+            <div className="nav-menu-text-box">
+              {t("navSection.projects.name")}
+            </div>
+          </Link>
         </div>
       </div>
     </>

@@ -1,0 +1,36 @@
+.project-post-container {
+  width: calc(760px - 10vw);
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  text-align: left;
+  line-height: 25px;
+}
+
+.project-post-header {
+  line-height: 2.5em;
+}
+.project-post-header p {
+  font-size: 13px;
+}
+
+.project-post-cover-image {
+  width: calc(760px - 10vw);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+.project-post-cover-image img {
+  width: 100%;
+}
+
+@media screen and (max-width: 760px) {
+  .project-post-container {
+    width: 100%;
+  }
+
+  .project-post-cover-image {
+    width: 100%;
+  }
+}

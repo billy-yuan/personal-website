@@ -22,6 +22,10 @@ export const translation = {
           name: "Photos",
           text: "Sometimes, I like to take pictures.",
         },
+        projects: {
+          name: "Projects",
+          text: "Overview of some of the things I've coded and built.",
+        },
       },
       blog: {
         header: "Blog",
@@ -29,6 +33,9 @@ export const translation = {
       footer: {
         text: "See the code ",
         here: "here.",
+      },
+      projects: {
+        header: "Projects",
       },
     },
   },
@@ -55,6 +62,10 @@ export const translation = {
           name: "Photos",
           text: "Sometimes, I like to take pictures.",
         },
+        projects: {
+          name: "Projects",
+          text: "Overview of some of the personal projects I've worked on.",
+        },
       },
       blog: {
         header: "ブログ",
@@ -62,6 +73,9 @@ export const translation = {
       footer: {
         text: "コードは",
         here: "こちらです。",
+      },
+      projects: {
+        header: "プロジェクト",
       },
     },
   },

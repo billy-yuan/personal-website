@@ -2,7 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import "./App.css";
 import { Blog } from "./blog/Blog";
 import { Home } from "./home/Home";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { MainNavIcons } from "./main-nav/MainNavIcons";
 import { BlogPost } from "./post/BlogPost";
 import { AboutMe } from "./about-me/AboutMe";
@@ -11,6 +11,8 @@ import { ListeningTo } from "./listening-to/ListeningTo";
 import { Footer } from "./footer/Footer";
 import { SelectPlace } from "./places/SelectPlace/SelectPlace";
 import PlacesMain from "./places/PlacesMain";
+import { Projects } from "./projects/Projects";
+import { ProjectPost } from "./projects/ProjectPost/ProjectPost";
 
 function App() {
   const client = new ApolloClient({
@@ -29,7 +31,9 @@ function App() {
           <Route path={NavSectionURL.Post} element={<BlogPost />} />
           <Route path={NavSectionURL.Coffee} element={<SelectPlace />} />
           <Route path={NavSectionURL.City} element={<PlacesMain />} />
-          <Route path="*" element={<Home />} />
+          <Route path={NavSectionURL.ProjectPost} element={<ProjectPost />} />
+          <Route path={NavSectionURL.Projects} element={<Projects />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
       </ApolloProvider>
