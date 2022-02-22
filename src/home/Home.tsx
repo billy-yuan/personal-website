@@ -55,10 +55,16 @@ function SectionNav() {
           text={t("navSection.coffee.text")}
         />
       </Link>
-      <NavCard
+      {/* <NavCard
         header={t("navSection.photos.name")}
         text={t("navSection.photos.text")}
-      />
+      /> */}
+      <Link to={NavSectionURL.Projects}>
+        <NavCard
+          header={t("navSection.projects.name")}
+          text={t("navSection.projects.text")}
+        />
+      </Link>
     </div>
   );
 }

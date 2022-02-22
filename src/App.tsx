@@ -11,6 +11,7 @@ import { ListeningTo } from "./listening-to/ListeningTo";
 import { Footer } from "./footer/Footer";
 import { SelectPlace } from "./places/SelectPlace/SelectPlace";
 import PlacesMain from "./places/PlacesMain";
+import { Projects } from "./projects/Projects";
 
 function App() {
   const client = new ApolloClient({
@@ -29,6 +30,7 @@ function App() {
           <Route path={NavSectionURL.Post} element={<BlogPost />} />
           <Route path={NavSectionURL.Coffee} element={<SelectPlace />} />
           <Route path={NavSectionURL.City} element={<PlacesMain />} />
+          <Route path={NavSectionURL.Projects} element={<Projects />} />
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer />
