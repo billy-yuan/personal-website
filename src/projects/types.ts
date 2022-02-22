@@ -8,4 +8,5 @@ export type Project = {
   markdown: {
     markdown: string;
   };
+  slug: string;
 };
