@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import { ONE_PROJECT_QUERY } from "./query";
+import { ProjectPostType } from "../types";
+import "./style.css";
 
 export function ProjectPost() {
   const { i18n } = useTranslation();
@@ -15,11 +17,17 @@ export function ProjectPost() {
     return <></>;
   }
 
-  const markdown: string = data.projects[0].markdown.markdown;
+  const projectPost: ProjectPostType = data.projects[0];
+  const markdown: string = projectPost.markdown.markdown;
 
   return (
-    <div>
-      Project Post
+    <div className="project-post-container">
+      <div className="project-post-header">
+        <h1>{projectPost.title}</h1>
+      </div>
+      <div className="project-post-cover-image">
+        <img src={projectPost.thumbnailImage.url} />
+      </div>
       <ReactMarkdown>{markdown}</ReactMarkdown>
     </div>
   );
