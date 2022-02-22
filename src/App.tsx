@@ -2,7 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import "./App.css";
 import { Blog } from "./blog/Blog";
 import { Home } from "./home/Home";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { MainNavIcons } from "./main-nav/MainNavIcons";
 import { BlogPost } from "./post/BlogPost";
 import { AboutMe } from "./about-me/AboutMe";
@@ -31,7 +31,7 @@ function App() {
           <Route path={NavSectionURL.Coffee} element={<SelectPlace />} />
           <Route path={NavSectionURL.City} element={<PlacesMain />} />
           <Route path={NavSectionURL.Projects} element={<Projects />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
       </ApolloProvider>
