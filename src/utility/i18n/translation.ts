@@ -34,6 +34,9 @@ export const translation = {
         text: "See the code ",
         here: "here.",
       },
+      projects: {
+        header: "Projects",
+      },
     },
   },
   ja: {
@@ -70,6 +73,9 @@ export const translation = {
       footer: {
         text: "コードは",
         here: "こちらです。",
+      },
+      projects: {
+        header: "プロジェクト",
       },
     },
   },
