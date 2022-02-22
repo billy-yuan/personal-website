@@ -1,0 +1,39 @@
+.select-project-card-container {
+  width: 500px;
+  position: relative;
+  cursor: pointer;
+}
+
+.select-project-card-container:hover {
+  transition: 0.1s;
+  opacity: 0.7;
+}
+.select-project-card-container img {
+  object-fit: cover;
+  position: relative;
+}
+
+.select-project-card-container div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  height: 240px;
+  width: 350px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.select-project-card-container p {
+  margin: 0 auto;
+  width: fit-content;
+  padding: 8px;
+}
+
+@media screen and (max-width: 760px) {
+  .select-project-card-container {
+    padding-bottom: 40px;
+  }
+}
