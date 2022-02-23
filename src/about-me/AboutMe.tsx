@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
-import { COLORS } from "../utility/colors";
 import { useOnLanguageChange } from "../utility/useOnLanguageChange";
 import { GetInTouch } from "./GetInTouch";
 import { ABOUT_ME_QUERY } from "./queries";
@@ -17,6 +16,7 @@ export function AboutMe() {
   if (!data) {
     return <div />;
   }
+  const profilePicUrl = data.aboutMes[0].profilePic.url;
 
   return (
     <div className="about-me-container">
@@ -24,10 +24,9 @@ export function AboutMe() {
         <ReactMarkdown>{data.aboutMes[0].content.markdown}</ReactMarkdown>
       </div>
       <div className="right-about-me">
-        <div
-          className="about-me-picture"
-          style={{ backgroundColor: COLORS.bisque }}
-        />
+        <div className="about-me-picture">
+          <img src={profilePicUrl} />
+        </div>
         <GetInTouch />
       </div>
     </div>

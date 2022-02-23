@@ -18,20 +18,29 @@
 
 .right-about-me {
   width: 200px;
-  height: 310px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.about-me-picture {
-  width: 200px;
-  height: 250px;
+.about-me-picture img {
+  border-radius: 50%;
+  max-width: 200px;
+  object-fit: cover;
 }
 
 .get-in-touch-container {
-  text-align: left;
+  text-align: center;
 }
+
+.get-in-touch-link a {
+  color: olive;
+}
+.get-in-touch-link a:hover {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 760px) {
   .about-me-container {
     width: 100%;

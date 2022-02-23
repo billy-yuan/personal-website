@@ -3,8 +3,7 @@ import "./style.css";
 export function GetInTouch() {
   return (
     <div className="get-in-touch-container">
-      <div>hello@billyyuan.com </div>
-      <div>
+      <div className="get-in-touch-link">
         <a
           href="http://www.linkedin.com/in/billyyuan"
           target="_blank"
@@ -12,6 +11,15 @@ export function GetInTouch() {
         >
           LinkedIn
         </a>{" "}
+      </div>
+      <div className="get-in-touch-link">
+        <a
+          href="https://github.com/billy-yuan"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </a>
       </div>
     </div>
   );

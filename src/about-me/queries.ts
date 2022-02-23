@@ -6,6 +6,9 @@ export const ABOUT_ME_QUERY = gql`
       content {
         markdown
       }
+      profilePic {
+        url
+      }
     }
   }
 `;
