@@ -25,6 +25,11 @@
   width: 100%;
 }
 
+.project-markdown-container a {
+  color: olive;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 760px) {
   .project-post-container {
     width: 100%;

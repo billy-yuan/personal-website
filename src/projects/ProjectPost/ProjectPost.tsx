@@ -28,7 +28,9 @@ export function ProjectPost() {
       <div className="project-post-cover-image">
         <img src={projectPost.thumbnailImage.url} />
       </div>
-      <ReactMarkdown>{markdown}</ReactMarkdown>
+      <div className="project-markdown-container">
+        <ReactMarkdown>{markdown}</ReactMarkdown>
+      </div>
     </div>
   );
 }
