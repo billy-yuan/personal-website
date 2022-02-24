@@ -22,6 +22,7 @@ export function Blog() {
       <div className="post-card-header">
         <h1>{t("blog.header")}</h1>
       </div>
+      {posts.length === 0 && t("blog.noPosts")}
       {posts.map((post) => (
         <div key={"post-card-" + post.id}>
           <PostCard

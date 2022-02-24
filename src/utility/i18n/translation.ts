@@ -29,6 +29,7 @@ export const translation = {
       },
       blog: {
         header: "Blog",
+        noPosts: "No posts yet! Check back soon.",
       },
       footer: {
         text: "See the code ",
@@ -69,6 +70,7 @@ export const translation = {
       },
       blog: {
         header: "ブログ",
+        noPosts: "No posts yet! Check back soon.",
       },
       footer: {
         text: "コードは",
